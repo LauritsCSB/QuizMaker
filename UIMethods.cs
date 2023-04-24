@@ -5,8 +5,13 @@ namespace QuizMaker
     {
         public static void WelcomeMessage()
         {
-            Console.WriteLine("Welcome user! This is a quiz maker program. You can either save new questions or run program with saved questions," +
-                " if no prior questions has been saved, no output will be given");
+            Console.WriteLine("Welcome user! This is a quiz maker program.\nWould you like to play latest saved quiz or create a new one?");
+            Console.WriteLine("\tFor new quiz pres 1\n\tFor latest quiz press 2");
+        }
+
+        public static void PromptForSaveAndExit()
+        {
+            Console.WriteLine("Press 2 if you'd like to save the quiz and exit the program");
         }
 
         public static string TakeQuestion()

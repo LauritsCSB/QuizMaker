@@ -5,7 +5,7 @@ namespace QuizMaker
     {
         public string question = UIMethods.TakeQuestion();
 
-        public List<string> answersList = new List<string>
+        public static List<string> answersList = new List<string>
         {
         };
 
