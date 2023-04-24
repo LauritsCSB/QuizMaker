@@ -3,15 +3,11 @@ namespace QuizMaker
 {
     public class Question
     {
-        private string question = "-";
+        public string question = UIMethods.SetQuestion();
+
         private List<string> answersList = new List<string>
         {
         };
-
-        public void setQuestion(string userInput)
-        {
-            question = userInput;
-        }
 
         public void setAnswer()
         {

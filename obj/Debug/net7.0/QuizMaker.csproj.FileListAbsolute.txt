@@ -1,0 +1,15 @@
+/Users/Cecilie/Projects/QuizMaker/obj/Debug/net7.0/QuizMaker.csproj.AssemblyReference.cache
+/Users/Cecilie/Projects/QuizMaker/obj/Debug/net7.0/QuizMaker.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Cecilie/Projects/QuizMaker/obj/Debug/net7.0/QuizMaker.AssemblyInfoInputs.cache
+/Users/Cecilie/Projects/QuizMaker/obj/Debug/net7.0/QuizMaker.AssemblyInfo.cs
+/Users/Cecilie/Projects/QuizMaker/obj/Debug/net7.0/QuizMaker.csproj.CoreCompileInputs.cache
+/Users/Cecilie/Projects/QuizMaker/bin/Debug/net7.0/QuizMaker
+/Users/Cecilie/Projects/QuizMaker/bin/Debug/net7.0/QuizMaker.deps.json
+/Users/Cecilie/Projects/QuizMaker/bin/Debug/net7.0/QuizMaker.runtimeconfig.json
+/Users/Cecilie/Projects/QuizMaker/bin/Debug/net7.0/QuizMaker.dll
+/Users/Cecilie/Projects/QuizMaker/bin/Debug/net7.0/QuizMaker.pdb
+/Users/Cecilie/Projects/QuizMaker/obj/Debug/net7.0/QuizMaker.dll
+/Users/Cecilie/Projects/QuizMaker/obj/Debug/net7.0/refint/QuizMaker.dll
+/Users/Cecilie/Projects/QuizMaker/obj/Debug/net7.0/QuizMaker.pdb
+/Users/Cecilie/Projects/QuizMaker/obj/Debug/net7.0/QuizMaker.genruntimeconfig.cache
+/Users/Cecilie/Projects/QuizMaker/obj/Debug/net7.0/ref/QuizMaker.dll
