@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        XmlSerializer writer = new XmlSerializer(typeof(List<Question>));
+        XmlSerializer serializer = new XmlSerializer(typeof(List<Question>));
         var QuestionsList = new List<Question>();
         UIMethods.WelcomeMessage();
 
@@ -14,13 +14,17 @@ class Program
             QuestionsList.Add(Question);
             UIMethods.PromptForSaveAndExit();
         }
+
         var path = "/Users/Cecilie/Projects/QuizMaker/QuizData.xml";
         using (FileStream file = File.Create(path))
         {
-            writer.Serialize(file, QuestionsList);
+            serializer.Serialize(file, QuestionsList);
         }
 
-
+        using (FileStream file = File.OpenRead(path))
+        {
+            QuestionsList = serializer.Deserialize(file) as List<Question>;
+        }
     }
 }
 

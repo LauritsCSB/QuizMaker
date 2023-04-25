@@ -21,20 +21,15 @@ namespace QuizMaker
             return question;
         }
 
-        public static void TakeAnswers()
+        public static List<string> answersList = new List<string>
         {
-            int amountOfAnswers;
-            Console.WriteLine("Please enter the amount of answers and press enter:");
-            bool isNumber = Int32.TryParse(Console.ReadLine(), out amountOfAnswers);
-
-            if (isNumber)
-            {
-                for (int i = 1; i <= amountOfAnswers; i++)
-                {
-                    Console.WriteLine($"Set answer {i}");
-                    Question.answersList.Add(Console.ReadLine());
-                }
-            }
+            "","","",""
+        };
+        public static string TakeAnswer()
+        {
+            Console.WriteLine("Enter answer: ");
+            string answer = Console.ReadLine();
+            return answer;
         }
     }
 }
