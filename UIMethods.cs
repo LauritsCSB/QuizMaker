@@ -21,10 +21,6 @@ namespace QuizMaker
             return question;
         }
 
-        public static List<string> answersList = new List<string>
-        {
-            "","","",""
-        };
         public static string TakeAnswer()
         {
             Console.WriteLine("Enter answer: ");

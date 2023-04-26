@@ -5,26 +5,44 @@ class Program
     static void Main(string[] args)
     {
         XmlSerializer serializer = new XmlSerializer(typeof(List<Question>));
-        var QuestionsList = new List<Question>();
+        var path = "/Users/Cecilie/Projects/QuizMaker/QuizData.xml";
+        List<Question> QuestionsList = new List<Question>();
         UIMethods.WelcomeMessage();
 
-        while (Console.ReadKey(true).Key != ConsoleKey.D2)
+        int decider;
+        Int32.TryParse(Console.ReadLine(), out decider);
+
+        if (decider == 1)
         {
-            var Question = new Question();
-            QuestionsList.Add(Question);
-            UIMethods.PromptForSaveAndExit();
+            while (decider == 1)
+            {
+                var Question = new Question();
+                QuestionsList.Add(Question);
+                UIMethods.PromptForSaveAndExit();
+                Int32.TryParse(Console.ReadLine(), out decider);
+            }
+
+            using (FileStream file = File.Create(path))
+            {
+                serializer.Serialize(file, QuestionsList);
+            }
         }
 
-        var path = "/Users/Cecilie/Projects/QuizMaker/QuizData.xml";
-        using (FileStream file = File.Create(path))
+
+        if (decider == 2)
         {
-            serializer.Serialize(file, QuestionsList);
+            using (FileStream file = File.OpenRead(path))
+            {
+                QuestionsList = serializer.Deserialize(file) as List<Question>;
+            }
+
+            foreach (var Question in QuestionsList)
+            {
+                Console.WriteLine(Question.question);
+            }
         }
 
-        using (FileStream file = File.OpenRead(path))
-        {
-            QuestionsList = serializer.Deserialize(file) as List<Question>;
-        }
+
     }
 }
 
