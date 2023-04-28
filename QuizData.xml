@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfQuestion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Question />
-</ArrayOfQuestion>
+<ArrayOfQuestionCreator xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestionCreator>
+    <Question>2</Question>
+    <Answer1>2</Answer1>
+    <Answer2>2</Answer2>
+    <Answer3>2</Answer3>
+    <Answer4>2</Answer4>
+  </QuestionCreator>
+</ArrayOfQuestionCreator>

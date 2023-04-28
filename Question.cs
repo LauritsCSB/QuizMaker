@@ -1,14 +1,14 @@
 ﻿using System;
 namespace QuizMaker
 {
-    public class Question
+    public class QuestionCreator
     {
-        public static string question;
+        public string Question { get; set; }
 
-        public static string answer1;
-        public static string answer2;
-        public static string answer3;
-        public static string answer4;
+        public string Answer1 { get; set; }
+        public string Answer2 { get; set; }
+        public string Answer3 { get; set; }
+        public string Answer4 { get; set; }
     }
 }
 

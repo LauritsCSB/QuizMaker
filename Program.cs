@@ -4,9 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(List<Question>));
-        var path = "/Users/Cecilie/Projects/QuizMaker/QuizData.xml";
-        List<Question> QuestionsList = new List<Question>();
+        XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionCreator>));
+        var path = @"/Users/Cecilie/Projects/QuizMaker/QuizData.xml";
+        List<QuestionCreator> QuestionsList = new List<QuestionCreator>();
         UIMethods.WelcomeMessage();
 
         int decider;
@@ -16,14 +16,16 @@ class Program
         {
             while (decider == 1)
             {
-                var Question = new Question();
-                UIMethods.TakeQuestion();
-                UIMethods.TakeFirstAnswer();
-                UIMethods.TakeSecondAnswer();
-                UIMethods.TakeThirdAnswer();
-                UIMethods.TakeFourthAnswer();
+                var Question1 = new QuestionCreator();
+
+                Question1.Question = UIMethods.TakeQuestion();
+                Question1.Answer1 = UIMethods.TakeAnswer();
+                Question1.Answer2 = UIMethods.TakeAnswer();
+                Question1.Answer3 = UIMethods.TakeAnswer();
+                Question1.Answer4 = UIMethods.TakeAnswer();
+                
                 UIMethods.PromptForSaveAndExit();
-                QuestionsList.Add(Question);
+                QuestionsList.Add(Question1);
                 Int32.TryParse(Console.ReadLine(), out decider);
             }
 
@@ -38,16 +40,16 @@ class Program
         {
             using (FileStream file = File.OpenRead(path))
             {
-                QuestionsList = serializer.Deserialize(file) as List<Question>;
+                QuestionsList = serializer.Deserialize(file) as List<QuestionCreator>;
             }
 
             foreach (var Question in QuestionsList)
             {
-                Console.WriteLine(Question.question);
-                Console.WriteLine(Question.answer1);
-                Console.WriteLine(Question.answer2);
-                Console.WriteLine(Question.answer3);
-                Console.WriteLine(Question.answer4);
+                Console.WriteLine(Question.Question);
+                Console.WriteLine(Question.Answer1);
+                Console.WriteLine(Question.Answer2);
+                Console.WriteLine(Question.Answer3);
+                Console.WriteLine(Question.Answer4);
             }
         }
 
