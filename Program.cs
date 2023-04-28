@@ -17,8 +17,13 @@ class Program
             while (decider == 1)
             {
                 var Question = new Question();
-                QuestionsList.Add(Question);
+                UIMethods.TakeQuestion();
+                UIMethods.TakeFirstAnswer();
+                UIMethods.TakeSecondAnswer();
+                UIMethods.TakeThirdAnswer();
+                UIMethods.TakeFourthAnswer();
                 UIMethods.PromptForSaveAndExit();
+                QuestionsList.Add(Question);
                 Int32.TryParse(Console.ReadLine(), out decider);
             }
 
@@ -39,6 +44,10 @@ class Program
             foreach (var Question in QuestionsList)
             {
                 Console.WriteLine(Question.question);
+                Console.WriteLine(Question.answer1);
+                Console.WriteLine(Question.answer2);
+                Console.WriteLine(Question.answer3);
+                Console.WriteLine(Question.answer4);
             }
         }
 

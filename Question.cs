@@ -3,12 +3,12 @@ namespace QuizMaker
 {
     public class Question
     {
-        public string question = UIMethods.TakeQuestion();
+        public static string question;
 
-        public string answer1 = UIMethods.TakeAnswer();
-        public string answer2 = UIMethods.TakeAnswer();
-        public string answer3 = UIMethods.TakeAnswer();
-        public string answer4 = UIMethods.TakeAnswer();
+        public static string answer1;
+        public static string answer2;
+        public static string answer3;
+        public static string answer4;
     }
 }
 
