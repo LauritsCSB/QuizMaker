@@ -27,30 +27,6 @@ namespace QuizMaker
             string answer = Console.ReadLine();
             return answer;
         }
-
-        /*public static void TakeFirstAnswer()
-        {
-            Console.WriteLine("Enter first answer: ");
-            QuestionCreator.answer1 = Console.ReadLine();
-        }
-
-        public static void TakeSecondAnswer()
-        {
-            Console.WriteLine("Enter second answer: ");
-            QuestionCreator.answer2 = Console.ReadLine();
-        }
-
-        public static void TakeThirdAnswer()
-        {
-            Console.WriteLine("Enter third answer: ");
-            QuestionCreator.answer3 = Console.ReadLine();
-        }
-
-        public static void TakeFourthAnswer()
-        {
-            Console.WriteLine("Enter fourth answer: ");
-            QuestionCreator.answer4 = Console.ReadLine();
-        }*/
     }
 }
 
