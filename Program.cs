@@ -18,11 +18,11 @@ class Program
             {
                 var Question1 = new QuestionCreator();
 
-                Question1.Question = UIMethods.TakeQuestion();
-                Question1.Answer1 = UIMethods.TakeAnswer();
-                Question1.Answer2 = UIMethods.TakeAnswer();
-                Question1.Answer3 = UIMethods.TakeAnswer();
-                Question1.Answer4 = UIMethods.TakeAnswer();
+                Question1.Question = UIMethods.SetQuestion();
+                Question1.Answer1 = UIMethods.SetAnswer();
+                Question1.Answer2 = UIMethods.SetAnswer();
+                Question1.Answer3 = UIMethods.SetAnswer();
+                Question1.Answer4 = UIMethods.SetAnswer();
                 
                 UIMethods.PromptForSaveAndExit();
                 QuestionsList.Add(Question1);
