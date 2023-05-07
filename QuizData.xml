@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfQuestionCreator xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <QuestionCreator>
-    <Question>2</Question>
-    <Answer1>2</Answer1>
-    <Answer2>2</Answer2>
-    <Answer3>2</Answer3>
-    <Answer4>2</Answer4>
+    <Question>What day is it?</Question>
+    <Answer1>Monday</Answer1>
+    <Answer2>Tuesday</Answer2>
+    <Answer3>Wednesday</Answer3>
+    <Answer4>Thursday</Answer4>
   </QuestionCreator>
 </ArrayOfQuestionCreator>

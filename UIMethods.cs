@@ -14,14 +14,14 @@ namespace QuizMaker
             Console.WriteLine("Press 2 if you'd like to save the quiz and exit the program");
         }
 
-        public static string TakeQuestion()
+        public static string SetQuestion()
         {
             Console.WriteLine("Enter question: ");
             string question = Console.ReadLine();
             return question;
         }
 
-        public static string TakeAnswer()
+        public static string SetAnswer()
         {
             Console.WriteLine("Enter answer: ");
             string answer = Console.ReadLine();
