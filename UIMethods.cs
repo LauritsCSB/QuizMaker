@@ -33,10 +33,10 @@ namespace QuizMaker
             foreach (var question in questions)
             {
                 Console.WriteLine(question.Question);
-                Console.WriteLine(question.Answer1);
-                Console.WriteLine(question.Answer2);
-                Console.WriteLine(question.Answer3);
-                Console.WriteLine(question.Answer4);
+                Console.WriteLine(question.Answer1.TrimEnd('*'));
+                Console.WriteLine(question.Answer2.TrimEnd('*'));
+                Console.WriteLine(question.Answer3.TrimEnd('*'));
+                Console.WriteLine(question.Answer4.TrimEnd('*'));
             }
         }
     }
