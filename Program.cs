@@ -44,7 +44,8 @@ class Program
                 QuestionsList = serializer.Deserialize(file) as List<QuestionCreator>;
             }
 
-            UIMethods.DisplayQuestion(QuestionsList);
+            UIMethods.DisplayQuestion(QuestionsList, LogicMethods.SelectRandomQuestion(QuestionsList.Count));
+
         }
 
 

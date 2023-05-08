@@ -28,16 +28,13 @@ namespace QuizMaker
             return answer;
         }
 
-        public static void DisplayQuestion(List<QuestionCreator> questions)
+        public static void DisplayQuestion(List<QuestionCreator> questions, int questionIndex)
         {
-            foreach (var question in questions)
-            {
-                Console.WriteLine(question.Question);
-                Console.WriteLine(question.Answer1.TrimEnd('*'));
-                Console.WriteLine(question.Answer2.TrimEnd('*'));
-                Console.WriteLine(question.Answer3.TrimEnd('*'));
-                Console.WriteLine(question.Answer4.TrimEnd('*'));
-            }
+            Console.WriteLine(questions[questionIndex].Question);
+            Console.WriteLine(questions[questionIndex].Answer1.TrimEnd('*'));
+            Console.WriteLine(questions[questionIndex].Answer2.TrimEnd('*'));
+            Console.WriteLine(questions[questionIndex].Answer3.TrimEnd('*'));
+            Console.WriteLine(questions[questionIndex].Answer4.TrimEnd('*'));
         }
     }
 }
