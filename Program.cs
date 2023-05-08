@@ -44,14 +44,7 @@ class Program
                 QuestionsList = serializer.Deserialize(file) as List<QuestionCreator>;
             }
 
-            foreach (var Question in QuestionsList)
-            {
-                Console.WriteLine(Question.Question);
-                Console.WriteLine(Question.Answer1);
-                Console.WriteLine(Question.Answer2);
-                Console.WriteLine(Question.Answer3);
-                Console.WriteLine(Question.Answer4);
-            }
+            UIMethods.DisplayQuestion(QuestionsList);
         }
 
 

@@ -27,6 +27,18 @@ namespace QuizMaker
             string answer = Console.ReadLine();
             return answer;
         }
+
+        public static void DisplayQuestion(List<QuestionCreator> questions)
+        {
+            foreach (var question in questions)
+            {
+                Console.WriteLine(question.Question);
+                Console.WriteLine(question.Answer1);
+                Console.WriteLine(question.Answer2);
+                Console.WriteLine(question.Answer3);
+                Console.WriteLine(question.Answer4);
+            }
+        }
     }
 }
 
