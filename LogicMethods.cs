@@ -9,7 +9,6 @@ namespace QuizMaker
             int randomNumber = random.Next(max);
             return randomNumber;
         }
-        
     }
 }
 

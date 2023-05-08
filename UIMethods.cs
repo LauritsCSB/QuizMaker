@@ -36,6 +36,14 @@ namespace QuizMaker
             Console.WriteLine(questions[questionIndex].Answer3.TrimEnd('*'));
             Console.WriteLine(questions[questionIndex].Answer4.TrimEnd('*'));
         }
+
+        public static int TakeAnswer()
+        {
+            int answer;
+            Console.WriteLine("Enter your guess: ");
+            Int32.TryParse(Console.ReadLine(), out answer);
+            return answer;
+        }
     }
 }
 

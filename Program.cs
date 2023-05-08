@@ -39,13 +39,30 @@ class Program
 
         if (decider == 2)
         {
+            bool win = false;
             using (FileStream file = File.OpenRead(path))
             {
                 QuestionsList = serializer.Deserialize(file) as List<QuestionCreator>;
             }
 
-            UIMethods.DisplayQuestion(QuestionsList, LogicMethods.SelectRandomQuestion(QuestionsList.Count));
+            int questionIndex = LogicMethods.SelectRandomQuestion(QuestionsList.Count);
+            UIMethods.DisplayQuestion(QuestionsList, questionIndex);
 
+            int pickedAnswer = UIMethods.TakeAnswer() - 1;
+
+            string[] answersArray = new string[]
+            {
+                QuestionsList[questionIndex].Answer1,
+                QuestionsList[questionIndex].Answer2,
+                QuestionsList[questionIndex].Answer3,
+                QuestionsList[questionIndex].Answer4
+            };
+
+            if (answersArray[pickedAnswer].Contains('*'))
+            {
+                Console.WriteLine("Correct!");
+            }
+            
         }
 
 

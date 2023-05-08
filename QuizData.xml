@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfQuestionCreator xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <QuestionCreator>
-    <Question>Is red a color?</Question>
-    <Answer1>Yes</Answer1>
-    <Answer2>Yes</Answer2>
-    <Answer3>Yes</Answer3>
-    <Answer4>Yes</Answer4>
+    <Question>What day is it today?</Question>
+    <Answer1>Monday*</Answer1>
+    <Answer2>Tuesday</Answer2>
+    <Answer3>Wednesday</Answer3>
+    <Answer4>Thursday</Answer4>
   </QuestionCreator>
   <QuestionCreator>
-    <Question>What color is the sky?</Question>
-    <Answer1>Red</Answer1>
-    <Answer2>Green</Answer2>
-    <Answer3>Black</Answer3>
-    <Answer4>Blue</Answer4>
+    <Question>What's 2 + 2?</Question>
+    <Answer1>1</Answer1>
+    <Answer2>2</Answer2>
+    <Answer3>3</Answer3>
+    <Answer4>4*</Answer4>
+  </QuestionCreator>
+  <QuestionCreator>
+    <Question>How old are you?</Question>
+    <Answer1>10</Answer1>
+    <Answer2>20</Answer2>
+    <Answer3>30*</Answer3>
+    <Answer4>40</Answer4>
   </QuestionCreator>
 </ArrayOfQuestionCreator>
