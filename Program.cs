@@ -14,20 +14,21 @@ class Program
 
         if (decider == 1)
         {
-            while (decider == 1)
+            do
             {
-                var Question1 = new QuestionCreator();
+                var Question = new QuestionCreator();
 
-                Question1.Question = UIMethods.SetQuestion();
-                Question1.Answer1 = UIMethods.SetAnswer();
-                Question1.Answer2 = UIMethods.SetAnswer();
-                Question1.Answer3 = UIMethods.SetAnswer();
-                Question1.Answer4 = UIMethods.SetAnswer();
-                
+                Question.Question = UIMethods.SetQuestion();
+                Question.Answer1 = UIMethods.SetAnswer();
+                Question.Answer2 = UIMethods.SetAnswer();
+                Question.Answer3 = UIMethods.SetAnswer();
+                Question.Answer4 = UIMethods.SetAnswer();
+
                 UIMethods.PromptForSaveAndExit();
-                QuestionsList.Add(Question1);
+                QuestionsList.Add(Question);
                 Int32.TryParse(Console.ReadLine(), out decider);
             }
+            while (decider == 1);
 
             using (FileStream file = File.Create(path))
             {
