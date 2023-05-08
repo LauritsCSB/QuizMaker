@@ -1,11 +1,15 @@
 ﻿using System;
 namespace QuizMaker
 {
-    public class EmptyClass
+    public class LogicMethods
     {
-        public EmptyClass()
+        public static int SelectRandomQuestion(int max)
         {
+            Random random = new Random();
+            int randomNumber = random.Next(max);
+            return randomNumber;
         }
+        
     }
 }
 

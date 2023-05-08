@@ -23,7 +23,7 @@ namespace QuizMaker
 
         public static string SetAnswer()
         {
-            Console.WriteLine("Enter answer: ");
+            Console.WriteLine("Enter answer: \n Note: For correct answer, add an '*' sign at the end of the string");
             string answer = Console.ReadLine();
             return answer;
         }
