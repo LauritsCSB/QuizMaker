@@ -19,6 +19,7 @@ class Program
                 var Question = new QuestionCreator();
 
                 Question.Question = UIMethods.SetQuestion();
+                UIMethods.DisplayHowToAddCorrectAnswer();
                 Question.Answer1 = UIMethods.SetAnswer();
                 Question.Answer2 = UIMethods.SetAnswer();
                 Question.Answer3 = UIMethods.SetAnswer();

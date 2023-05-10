@@ -21,9 +21,14 @@ namespace QuizMaker
             return question;
         }
 
+        public static void DisplayHowToAddCorrectAnswer()
+        {
+            Console.WriteLine("Note: For correct answer, add an '*' sign at the end of the string");
+        }
+
         public static string SetAnswer()
         {
-            Console.WriteLine("Enter answer: \n Note: For correct answer, add an '*' sign at the end of the string");
+            Console.WriteLine("Enter answer: ");
             string answer = Console.ReadLine();
             return answer;
         }
