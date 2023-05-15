@@ -45,7 +45,7 @@ namespace QuizMaker
         public static int TakeAnswer()
         {
             int answer;
-            Console.WriteLine("Enter your answer: ");
+            Console.WriteLine("Pick a number for your answer: ");
             Int32.TryParse(Console.ReadLine(), out answer);
             return answer;
         }
