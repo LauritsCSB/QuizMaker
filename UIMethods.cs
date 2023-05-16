@@ -33,7 +33,7 @@ namespace QuizMaker
             return answer;
         }
 
-        public static void DisplayQuestion(List<QuestionCreator> questions, int questionIndex)
+        public static void DisplayQuestion(List<QuestionClass> questions, int questionIndex)
         {
             Console.WriteLine(questions[questionIndex].Question);
             Console.WriteLine("1. " + questions[questionIndex].Answer1.TrimEnd('*'));

@@ -4,9 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionCreator>));
+        XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionClass>));
         var path = Directory.GetCurrentDirectory() + @"/QuizData.xml";
-        List<QuestionCreator> QuestionsList = new List<QuestionCreator>();
+        List<QuestionClass> QuestionsList = new List<QuestionClass>();
         UIMethods.WelcomeMessage();
 
         int decider;
@@ -16,7 +16,7 @@ class Program
         {
             do
             {
-                var Question = new QuestionCreator();
+                var Question = new QuestionClass();
 
                 Question.Question = UIMethods.SetQuestion();
                 UIMethods.DisplayHowToAddCorrectAnswer();
@@ -43,7 +43,7 @@ class Program
             bool win = false;
             using (FileStream file = File.OpenRead(path))
             {
-                QuestionsList = serializer.Deserialize(file) as List<QuestionCreator>;
+                QuestionsList = serializer.Deserialize(file) as List<QuestionClass>;
             }
 
             int questionIndex = LogicMethods.SelectRandomQuestion(QuestionsList.Count);

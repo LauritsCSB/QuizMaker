@@ -1,7 +1,7 @@
 ﻿using System;
 namespace QuizMaker
 {
-    public class QuestionCreator
+    public class QuestionClass
     {
         public string Question { get; set; }
 
