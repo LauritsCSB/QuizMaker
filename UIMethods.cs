@@ -36,10 +36,10 @@ namespace QuizMaker
         public static void DisplayQuestion(List<QuestionCreator> questions, int questionIndex)
         {
             Console.WriteLine(questions[questionIndex].Question);
-            Console.WriteLine(questions[questionIndex].Answer1.TrimEnd('*'));
-            Console.WriteLine(questions[questionIndex].Answer2.TrimEnd('*'));
-            Console.WriteLine(questions[questionIndex].Answer3.TrimEnd('*'));
-            Console.WriteLine(questions[questionIndex].Answer4.TrimEnd('*'));
+            Console.WriteLine("1. " + questions[questionIndex].Answer1.TrimEnd('*'));
+            Console.WriteLine("2. " + questions[questionIndex].Answer2.TrimEnd('*'));
+            Console.WriteLine("3. " + questions[questionIndex].Answer3.TrimEnd('*'));
+            Console.WriteLine("4. " + questions[questionIndex].Answer4.TrimEnd('*'));
         }
 
         public static int TakeAnswer()

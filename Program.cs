@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionCreator>));
-        var path = @"/Users/Cecilie/Projects/QuizMaker/QuizData.xml";
+        var path = Directory.GetCurrentDirectory() + @"/QuizData.xml";
         List<QuestionCreator> QuestionsList = new List<QuestionCreator>();
         UIMethods.WelcomeMessage();
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfQuestionCreator xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestionCreator>
+    <Question>CSGO is a computer game?</Question>
+    <Answer1>yes</Answer1>
+    <Answer2>no</Answer2>
+    <Answer3>maybe</Answer3>
+    <Answer4>very much*</Answer4>
+  </QuestionCreator>
+  <QuestionCreator>
+    <Question>what is 2 + 2?</Question>
+    <Answer1>1</Answer1>
+    <Answer2>2</Answer2>
+    <Answer3>3</Answer3>
+    <Answer4>4*</Answer4>
+  </QuestionCreator>
+  <QuestionCreator>
+    <Question>What year is it?</Question>
+    <Answer1>2002</Answer1>
+    <Answer2>2020</Answer2>
+    <Answer3>2022</Answer3>
+    <Answer4>2023*</Answer4>
+  </QuestionCreator>
+</ArrayOfQuestionCreator>
