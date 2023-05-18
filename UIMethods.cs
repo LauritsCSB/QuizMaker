@@ -36,17 +36,27 @@ namespace QuizMaker
         public static void DisplayQuestion(List<QuestionClass> questions, int questionIndex)
         {
             Console.WriteLine(questions[questionIndex].Question);
-            Console.WriteLine("1. " + questions[questionIndex].Answer1.TrimEnd('*'));
-            Console.WriteLine("2. " + questions[questionIndex].Answer2.TrimEnd('*'));
-            Console.WriteLine("3. " + questions[questionIndex].Answer3.TrimEnd('*'));
-            Console.WriteLine("4. " + questions[questionIndex].Answer4.TrimEnd('*'));
         }
 
-        public static int TakeAnswer()
+        public static void DisplayAnswers(List<QuestionClass> questions, List<string> answersList, int questionIndex)
+        {
+            answersList.Add(questions[questionIndex].Answer1);
+            answersList.Add(questions[questionIndex].Answer2);
+            answersList.Add(questions[questionIndex].Answer3);
+            answersList.Add(questions[questionIndex].Answer4);
+
+            for (int answersListIndex = 0; answersListIndex < answersList.Count; answersListIndex++)
+            {
+                Console.WriteLine($"{answersListIndex + 1}. {answersList[answersListIndex].TrimEnd('*')}");
+            }
+        }
+
+        public static int TakeAnswer(List<string> answersList)
         {
             int answer;
             Console.WriteLine("Pick a number for your answer: ");
             Int32.TryParse(Console.ReadLine(), out answer);
+
             return answer;
         }
     }

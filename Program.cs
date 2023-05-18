@@ -7,6 +7,8 @@ class Program
         XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionClass>));
         var path = Directory.GetCurrentDirectory() + @"/QuizData.xml";
         List<QuestionClass> QuestionsList = new List<QuestionClass>();
+        List<string> answersList = new List<string>();
+
         UIMethods.WelcomeMessage();
 
         int decider;
@@ -48,25 +50,29 @@ class Program
 
             int questionIndex = LogicMethods.SelectRandomQuestion(QuestionsList.Count);
             UIMethods.DisplayQuestion(QuestionsList, questionIndex);
+            UIMethods.DisplayAnswers(QuestionsList, answersList, questionIndex);
 
-            int pickedAnswer = UIMethods.TakeAnswer() - 1;
+            int pickedAnswer = -1;
 
-            string[] answersArray = new string[]
+            do
             {
-                QuestionsList[questionIndex].Answer1,
-                QuestionsList[questionIndex].Answer2,
-                QuestionsList[questionIndex].Answer3,
-                QuestionsList[questionIndex].Answer4
-            };
+                pickedAnswer = UIMethods.TakeAnswer(answersList) - 1;
+                if (pickedAnswer < 0 || pickedAnswer > answersList.Count)
+                {
+                    Console.WriteLine("Try again");
+                    continue;
+                }
 
-            if (answersArray[pickedAnswer].Contains('*'))
-            {
-                Console.WriteLine("Correct!");
-            }
-            
+                if (pickedAnswer > 0 && pickedAnswer <= answersList.Count)
+                {
+                    if (answersList[pickedAnswer].Contains('*'))
+                    {
+                        Console.WriteLine("Correct!");
+                    }
+
+                }
+            } while (pickedAnswer < 0 || pickedAnswer > answersList.Count);
         }
-
-
     }
 }
 
