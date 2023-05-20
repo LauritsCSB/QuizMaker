@@ -11,7 +11,7 @@ namespace QuizMaker
 
         public static void PromptForSaveAndExit()
         {
-            Console.WriteLine("Press 1 if you'd like to add another question.\n Press 2 to save and start quiz.\n Press 3 to save the quiz and exit the program");
+            Console.WriteLine("Press 1 if you'd like to add another question.\n Press 2 to save and start quiz.\n Press anything else to save the quiz and exit the program");
         }
 
         public static string SetQuestion()
