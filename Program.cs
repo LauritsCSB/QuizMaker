@@ -11,8 +11,12 @@ class Program
 
         UIMethods.WelcomeMessage();
 
-        int decider;
-        Int32.TryParse(Console.ReadLine(), out decider);
+        int decider = 0;
+        while (decider < 1 || decider > 2)
+        {
+            Int32.TryParse(Console.ReadLine(), out decider);
+            Console.WriteLine("Try again: ");
+        }
 
         if (decider == 1)
         {
