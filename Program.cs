@@ -47,6 +47,8 @@ class Program
         if (decider == 2)
         {
             bool win = false;
+
+
             using (FileStream file = File.OpenRead(path))
             {
                 QuestionsList = serializer.Deserialize(file) as List<QuestionClass>;
@@ -60,7 +62,7 @@ class Program
 
             do
             {
-                pickedAnswer = UIMethods.TakeAnswer(answersList) - 1;
+                pickedAnswer = UIMethods.PickAnswer(answersList) - 1;
                 if (pickedAnswer < 0 || pickedAnswer > answersList.Count)
                 {
                     Console.WriteLine("Try again");

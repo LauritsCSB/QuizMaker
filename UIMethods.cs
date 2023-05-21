@@ -51,7 +51,7 @@ namespace QuizMaker
             }
         }
 
-        public static int TakeAnswer(List<string> answersList)
+        public static int PickAnswer(List<string> answersList)
         {
             int answer;
             Console.WriteLine("Pick a number for your answer: ");
