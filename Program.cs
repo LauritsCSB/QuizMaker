@@ -58,25 +58,14 @@ class Program
             UIMethods.DisplayQuestion(QuestionsList, questionIndex);
             UIMethods.DisplayAnswers(QuestionsList, answersList, questionIndex);
 
-            int pickedAnswer = -1;
+            int pickedAnswer;
 
             do
             {
                 pickedAnswer = UIMethods.PickAnswer(answersList) - 1;
-                if (pickedAnswer < 0 || pickedAnswer > answersList.Count)
-                {
-                    Console.WriteLine("Try again");
-                    continue;
-                }
 
-                if (pickedAnswer > 0 && pickedAnswer <= answersList.Count)
-                {
-                    if (answersList[pickedAnswer].Contains('*'))
-                    {
-                        Console.WriteLine("Correct!");
-                    }
+                UIMethods.CheckAnswer(pickedAnswer, answersList);
 
-                }
             } while (pickedAnswer < 0 || pickedAnswer > answersList.Count);
         }
     }

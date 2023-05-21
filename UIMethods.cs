@@ -59,6 +59,22 @@ namespace QuizMaker
 
             return answer;
         }
+
+        public static void CheckAnswer(int pickedAnswer, List<string> answersList)
+        {
+            if (pickedAnswer < 0 || pickedAnswer > answersList.Count)
+            {
+                Console.WriteLine("Try again");
+            }
+
+            if (pickedAnswer > 0 && pickedAnswer <= answersList.Count)
+            {
+                if (answersList[pickedAnswer].Contains('*'))
+                {
+                    Console.WriteLine("Correct!");
+                }
+            }
+        }
     }
 }
 
