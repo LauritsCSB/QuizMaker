@@ -22,6 +22,7 @@ class Program
         {
             do
             {
+                UIMethods.ClearConsole();
                 var Question = new QuestionClass();
 
                 Question.Question = UIMethods.SetQuestion();
@@ -45,6 +46,7 @@ class Program
 
         while (decider == 2)
         {
+            UIMethods.ClearConsole();
             using (FileStream file = File.OpenRead(path))
             {
                 QuestionsList = serializer.Deserialize(file) as List<QuestionClass>;

@@ -97,6 +97,11 @@ namespace QuizMaker
             Int32.TryParse(Console.ReadLine(), out decider);
             return decider;
         }
+
+        public static void ClearConsole()
+        {
+            Console.Clear();
+        }
     }
 }
 
