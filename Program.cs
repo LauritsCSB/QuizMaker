@@ -7,7 +7,7 @@ class Program
         XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionClass>));
         var path = Directory.GetCurrentDirectory() + @"/QuizData.xml";
         List<QuestionClass> QuestionsList = new List<QuestionClass>();
-        List<string> answersList = new List<string>();
+        string[] answersArray = new string[4];
 
         UIMethods.WelcomeMessage();
 
@@ -55,17 +55,17 @@ class Program
 
             int questionIndex = LogicMethods.SelectRandomQuestion(QuestionsList.Count);
             UIMethods.DisplayQuestion(QuestionsList, questionIndex);
-            UIMethods.DisplayAnswers(QuestionsList, answersList, questionIndex);
+            UIMethods.DisplayAnswers(QuestionsList, answersArray, questionIndex);
 
             int pickedAnswer;
 
             do
             {
-                pickedAnswer = UIMethods.PickAnswer(answersList) - 1;
+                pickedAnswer = UIMethods.PickAnswer(answersArray) - 1;
 
-                UIMethods.CheckAnswer(pickedAnswer, answersList);
+                UIMethods.CheckAnswer(pickedAnswer, answersArray);
 
-            } while (pickedAnswer < 0 || pickedAnswer > answersList.Count);
+            } while (pickedAnswer < 0 || pickedAnswer > answersArray.Length);
 
             decider = UIMethods.AskForReplay();
         }

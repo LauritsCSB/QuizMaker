@@ -49,20 +49,25 @@ namespace QuizMaker
             Console.WriteLine(questions[questionIndex].Question);
         }
 
-        public static void DisplayAnswers(List<QuestionClass> questions, List<string> answersList, int questionIndex)
+        public static void DisplayAnswers(List<QuestionClass> questions, string[] answersArray, int questionIndex)
         {
-            answersList.Add(questions[questionIndex].Answer1);
+           /* answersList.Add(questions[questionIndex].Answer1);
             answersList.Add(questions[questionIndex].Answer2);
             answersList.Add(questions[questionIndex].Answer3);
-            answersList.Add(questions[questionIndex].Answer4);
+            answersList.Add(questions[questionIndex].Answer4);*/
 
-            for (int answersListIndex = 0; answersListIndex < answersList.Count; answersListIndex++)
+            answersArray[0] = questions[questionIndex].Answer1;
+            answersArray[1] = questions[questionIndex].Answer2;
+            answersArray[2] = questions[questionIndex].Answer3;
+            answersArray[3] = questions[questionIndex].Answer4;
+
+            for (int answersListIndex = 0; answersListIndex < answersArray.Length; answersListIndex++)
             {
-                Console.WriteLine($"{answersListIndex + 1}. {answersList[answersListIndex].TrimEnd('*')}");
+                Console.WriteLine($"{answersListIndex + 1}. {answersArray[answersListIndex].TrimEnd('*')}");
             }
         }
 
-        public static int PickAnswer(List<string> answersList)
+        public static int PickAnswer(string[] answersArray)
         {
             int answer;
             Console.WriteLine("Pick a number for your answer: ");
@@ -71,16 +76,16 @@ namespace QuizMaker
             return answer;
         }
 
-        public static void CheckAnswer(int pickedAnswer, List<string> answersList)
+        public static void CheckAnswer(int pickedAnswer, string[] answersArray)
         {
-            if (pickedAnswer < 0 || pickedAnswer > answersList.Count)
+            if (pickedAnswer < 0 || pickedAnswer > answersArray.Length)
             {
                 Console.WriteLine("Try again");
             }
 
-            if (pickedAnswer > 0 && pickedAnswer <= answersList.Count)
+            if (pickedAnswer > 0 && pickedAnswer <= answersArray.Length)
             {
-                if (answersList[pickedAnswer].Contains('*'))
+                if (answersArray[pickedAnswer].Contains('*'))
                 {
                     Console.WriteLine("Correct!");
                 }
