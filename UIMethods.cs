@@ -9,6 +9,17 @@ namespace QuizMaker
             Console.WriteLine("\tFor new quiz pres 1\n\tFor latest quiz press 2");
         }
 
+        public static int DecideNewOrOldQuiz()
+        {
+            int decider;
+            Int32.TryParse(Console.ReadLine(), out decider);
+            if (decider < 1 || decider > 2)
+            {
+                Console.WriteLine("Try again");
+            }
+            return decider;
+        }
+
         public static void PromptForSaveAndExit()
         {
             Console.WriteLine("Press 1 if you'd like to add another question.\n Press 2 to save and start quiz.\n Press anything else to save the quiz and exit the program");
@@ -74,6 +85,14 @@ namespace QuizMaker
                     Console.WriteLine("Correct!");
                 }
             }
+        }
+
+        public static int AskForReplay()
+        {
+            int decider;
+            Console.WriteLine("For new question press 2, to exit press any other number");
+            Int32.TryParse(Console.ReadLine(), out decider);
+            return decider;
         }
     }
 }

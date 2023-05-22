@@ -11,12 +11,12 @@ class Program
 
         UIMethods.WelcomeMessage();
 
-        int decider = 0;
-        while (decider < 1 || decider > 2)
+        int decider;
+        do
         {
-            Int32.TryParse(Console.ReadLine(), out decider);
-            Console.WriteLine("Try again: ");
-        }
+            decider = UIMethods.DecideNewOrOldQuiz();
+
+        } while (decider < 1 || decider > 2);
 
         if (decider == 1)
         {
@@ -44,10 +44,9 @@ class Program
         }
 
 
-        if (decider == 2)
+        while (decider == 2)
         {
             bool win = false;
-
 
             using (FileStream file = File.OpenRead(path))
             {
@@ -67,6 +66,8 @@ class Program
                 UIMethods.CheckAnswer(pickedAnswer, answersList);
 
             } while (pickedAnswer < 0 || pickedAnswer > answersList.Count);
+
+            decider = UIMethods.AskForReplay();
         }
     }
 }
