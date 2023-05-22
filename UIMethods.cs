@@ -42,7 +42,7 @@ namespace QuizMaker
 
         public static string SetAnswer()
         {
-            Console.WriteLine("Enter answer: ");
+            Console.WriteLine("Enter possible answer: ");
             string answer = Console.ReadLine();
             return answer;
         }
