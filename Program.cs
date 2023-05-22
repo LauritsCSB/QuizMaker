@@ -31,9 +31,8 @@ class Program
                 Question.Answer3 = UIMethods.SetAnswer();
                 Question.Answer4 = UIMethods.SetAnswer();
 
-                UIMethods.PromptForSaveAndExit();
+                decider = UIMethods.PromptForSaveAndExit();
                 QuestionsList.Add(Question);
-                Int32.TryParse(Console.ReadLine(), out decider);
             }
             while (decider == 1);
 
@@ -46,8 +45,6 @@ class Program
 
         while (decider == 2)
         {
-            bool win = false;
-
             using (FileStream file = File.OpenRead(path))
             {
                 QuestionsList = serializer.Deserialize(file) as List<QuestionClass>;
@@ -58,7 +55,6 @@ class Program
             UIMethods.DisplayAnswers(QuestionsList, answersArray, questionIndex);
 
             int pickedAnswer;
-
             do
             {
                 pickedAnswer = UIMethods.PickAnswer(answersArray) - 1;

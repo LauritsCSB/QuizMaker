@@ -20,9 +20,12 @@ namespace QuizMaker
             return decider;
         }
 
-        public static void PromptForSaveAndExit()
+        public static int PromptForSaveAndExit()
         {
+            int decider;
             Console.WriteLine("Press 1 if you'd like to add another question.\n Press 2 to save and start quiz.\n Press anything else to save the quiz and exit the program");
+            Int32.TryParse(Console.ReadLine(), out decider);
+            return decider;
         }
 
         public static string SetQuestion()
@@ -51,11 +54,6 @@ namespace QuizMaker
 
         public static void DisplayAnswers(List<QuestionClass> questions, string[] answersArray, int questionIndex)
         {
-           /* answersList.Add(questions[questionIndex].Answer1);
-            answersList.Add(questions[questionIndex].Answer2);
-            answersList.Add(questions[questionIndex].Answer3);
-            answersList.Add(questions[questionIndex].Answer4);*/
-
             answersArray[0] = questions[questionIndex].Answer1;
             answersArray[1] = questions[questionIndex].Answer2;
             answersArray[2] = questions[questionIndex].Answer3;
