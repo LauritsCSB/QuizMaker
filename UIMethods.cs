@@ -3,7 +3,7 @@ namespace QuizMaker
 {
     public class UIMethods
     {
-        public static int WelcomeMessage()
+        public static int DisplayWelcomeMessage()
         {
             int decider;
             Console.WriteLine("Welcome user! This is a quiz maker program.\nWould you like to play latest saved quiz or create a new one?");
@@ -63,7 +63,7 @@ namespace QuizMaker
             }
         }
 
-        public static int PickAnswer(string[] answersArray)
+        public static int PromptToPickAnswer()
         {
             int answer;
             Console.WriteLine("Pick a number for your answer: ");
@@ -72,7 +72,7 @@ namespace QuizMaker
             return answer - 1;
         }
 
-        public static void CheckAnswer(int pickedAnswer, string[] answersArray)
+        public static void DisplayFeedbackToAnswer(int pickedAnswer, string[] answersArray)
         {
             if (pickedAnswer < 0 || pickedAnswer > answersArray.Length)
             {
