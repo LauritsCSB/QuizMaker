@@ -72,20 +72,22 @@ namespace QuizMaker
             return answer - 1;
         }
 
-        public static void DisplayFeedbackToAnswer(int pickedAnswer, string[] answersArray)
+        public static void DisplayFeedbackToAnswer(int pickedAnswer, string[] answersArray, bool win)
         {
             if (pickedAnswer < 0 || pickedAnswer > answersArray.Length)
             {
                 Console.WriteLine("Try again");
             }
 
-            if (pickedAnswer > 0 && pickedAnswer <= answersArray.Length)
+            if (win)
             {
-                if (answersArray[pickedAnswer].Contains('*'))
-                {
-                    Console.WriteLine("Correct!");
-                }
+                Console.WriteLine("Correct!");
             }
+            else
+            {
+                Console.WriteLine("Wrong!");
+            }
+            
         }
 
         public static int AskForReplay()

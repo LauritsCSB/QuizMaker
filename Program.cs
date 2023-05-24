@@ -10,7 +10,7 @@ class Program
         string[] answersArray = new string[4];
         int decider;
 
-        decider = UIMethods.WelcomeMessage();
+        decider = UIMethods.DisplayWelcomeMessage();
 
         if (decider == 1)
         {
@@ -40,6 +40,7 @@ class Program
 
         while (decider == 2)
         {
+            bool win = false;
             UIMethods.ClearConsole();
             using (FileStream file = File.OpenRead(path))
             {
@@ -53,9 +54,10 @@ class Program
             int pickedAnswer;
             do
             {
-                pickedAnswer = UIMethods.PickAnswer(answersArray);
+                pickedAnswer = UIMethods.PromptToPickAnswer();
+                win = LogicMethods.CheckAnswer(answersArray, pickedAnswer);
 
-                UIMethods.CheckAnswer(pickedAnswer, answersArray);
+                UIMethods.DisplayFeedbackToAnswer(pickedAnswer, answersArray, win);
 
             } while (pickedAnswer < 0 || pickedAnswer > answersArray.Length);
 
