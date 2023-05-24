@@ -3,19 +3,17 @@ namespace QuizMaker
 {
     public class UIMethods
     {
-        public static void WelcomeMessage()
-        {
-            Console.WriteLine("Welcome user! This is a quiz maker program.\nWould you like to play latest saved quiz or create a new one?");
-            Console.WriteLine("\tFor new quiz pres 1\n\tFor latest quiz press 2");
-        }
-
-        public static int DecideNewOrOldQuiz()
+        public static int WelcomeMessage()
         {
             int decider;
+            Console.WriteLine("Welcome user! This is a quiz maker program.\nWould you like to play latest saved quiz or create a new one?");
+            Console.WriteLine("\tFor new quiz pres 1\n\tFor latest quiz press 2");
+
             Int32.TryParse(Console.ReadLine(), out decider);
-            if (decider < 1 || decider > 2)
+            while (decider < 1 || decider > 2)
             {
                 Console.WriteLine("Try again");
+                Int32.TryParse(Console.ReadLine(), out decider);
             }
             return decider;
         }

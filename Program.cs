@@ -8,15 +8,9 @@ class Program
         var path = Directory.GetCurrentDirectory() + @"/QuizData.xml";
         List<QuestionClass> QuestionsList = new List<QuestionClass>();
         string[] answersArray = new string[4];
-
-        UIMethods.WelcomeMessage();
-
         int decider;
-        do
-        {
-            decider = UIMethods.DecideNewOrOldQuiz();
 
-        } while (decider < 1 || decider > 2);
+        decider = UIMethods.WelcomeMessage();
 
         if (decider == 1)
         {
