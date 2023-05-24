@@ -71,7 +71,7 @@ namespace QuizMaker
             Console.WriteLine("Pick a number for your answer: ");
             Int32.TryParse(Console.ReadLine(), out answer);
 
-            return answer;
+            return answer - 1;
         }
 
         public static void CheckAnswer(int pickedAnswer, string[] answersArray)

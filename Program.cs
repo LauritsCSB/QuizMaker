@@ -59,7 +59,7 @@ class Program
             int pickedAnswer;
             do
             {
-                pickedAnswer = UIMethods.PickAnswer(answersArray) - 1;
+                pickedAnswer = UIMethods.PickAnswer(answersArray);
 
                 UIMethods.CheckAnswer(pickedAnswer, answersArray);
 
