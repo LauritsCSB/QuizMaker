@@ -2,10 +2,12 @@
 using System.Xml.Serialization;
 class Program
 {
+    public static readonly Random random = new Random();
     static void Main(string[] args)
     {
         XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionClass>));
         var path = Directory.GetCurrentDirectory() + @"/QuizData.xml";
+        
         List<QuestionClass> QuestionsList = new List<QuestionClass>();
         string[] answersArray = new string[4];
         int decider;
