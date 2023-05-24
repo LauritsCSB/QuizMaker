@@ -15,6 +15,7 @@ namespace QuizMaker
                 Console.WriteLine("Try again");
                 Int32.TryParse(Console.ReadLine(), out decider);
             }
+            Console.Clear();
             return decider;
         }
 
@@ -96,11 +97,6 @@ namespace QuizMaker
             Console.WriteLine("For new question press 2, to exit press any other number");
             Int32.TryParse(Console.ReadLine(), out decider);
             return decider;
-        }
-
-        public static void ClearConsole()
-        {
-            Console.Clear();
         }
     }
 }
