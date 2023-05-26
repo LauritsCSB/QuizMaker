@@ -22,9 +22,6 @@ class Program
                 Question.Question = UIMethods.SetQuestion();
                 UIMethods.DisplayHowToAddCorrectAnswer();
                 UIMethods.SetAnswers(Question.Answers);
-                /*Question.Answer2 = UIMethods.SetAnswer();
-                Question.Answer3 = UIMethods.SetAnswer();
-                Question.Answer4 = UIMethods.SetAnswer();*/
 
                 decider = UIMethods.PromptForSaveAndExit();
                 QuestionsList.Add(Question);
