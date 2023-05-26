@@ -9,7 +9,6 @@ class Program
         var path = Directory.GetCurrentDirectory() + @"/QuizData.xml";
         
         List<QuestionClass> QuestionsList = new List<QuestionClass>();
-        string[] answersArray = new string[4];
         int decider;
 
         decider = UIMethods.DisplayWelcomeMessage();
@@ -22,10 +21,10 @@ class Program
 
                 Question.Question = UIMethods.SetQuestion();
                 UIMethods.DisplayHowToAddCorrectAnswer();
-                Question.Answer1 = UIMethods.SetAnswer();
-                Question.Answer2 = UIMethods.SetAnswer();
+                UIMethods.SetAnswers(Question.Answers);
+                /*Question.Answer2 = UIMethods.SetAnswer();
                 Question.Answer3 = UIMethods.SetAnswer();
-                Question.Answer4 = UIMethods.SetAnswer();
+                Question.Answer4 = UIMethods.SetAnswer();*/
 
                 decider = UIMethods.PromptForSaveAndExit();
                 QuestionsList.Add(Question);
@@ -49,17 +48,17 @@ class Program
 
             int questionIndex = LogicMethods.SelectRandomQuestion(QuestionsList.Count);
             UIMethods.DisplayQuestion(QuestionsList, questionIndex);
-            UIMethods.DisplayAnswers(QuestionsList, answersArray, questionIndex);
+            UIMethods.DisplayAnswers(QuestionsList, questionIndex, QuestionsList[questionIndex].Answers);
 
             int pickedAnswer;
             do
             {
                 pickedAnswer = UIMethods.PromptToPickAnswer();
-                win = LogicMethods.CheckAnswer(answersArray, pickedAnswer);
+                win = LogicMethods.CheckAnswer(QuestionsList[questionIndex].Answers, pickedAnswer);
 
-                UIMethods.DisplayFeedbackToAnswer(pickedAnswer, answersArray, win);
+                UIMethods.DisplayFeedbackToAnswer(pickedAnswer, QuestionsList[questionIndex].Answers, win);
 
-            } while (pickedAnswer < 0 || pickedAnswer > answersArray.Length);
+            } while (pickedAnswer < 0 || pickedAnswer > QuestionsList[questionIndex].Answers.Count);
 
             decider = UIMethods.AskForReplay();
         }

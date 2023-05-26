@@ -24,6 +24,7 @@ namespace QuizMaker
             int decider;
             Console.WriteLine("Press 1 if you'd like to add another question.\n Press 2 to save and start quiz.\n Press anything else to save the quiz and exit the program");
             Int32.TryParse(Console.ReadLine(), out decider);
+            Console.Clear();
             return decider;
         }
 
@@ -39,11 +40,14 @@ namespace QuizMaker
             Console.WriteLine("Note: For correct answer, add an '*' sign at the end of the string");
         }
 
-        public static string SetAnswer()
+        public static void SetAnswers(List<string> answers)
         {
-            Console.WriteLine("Enter possible answer: ");
-            string answer = Console.ReadLine();
-            return answer;
+            for (int answerIndex = 0; answerIndex <= 3; answerIndex++)
+            {
+            Console.WriteLine($"Enter answer {answerIndex+1}: ");
+            answers.Add(Console.ReadLine());
+            }
+            Console.Clear();
         }
 
         public static void DisplayQuestion(List<QuestionClass> questions, int questionIndex)
@@ -51,16 +55,11 @@ namespace QuizMaker
             Console.WriteLine(questions[questionIndex].Question);
         }
 
-        public static void DisplayAnswers(List<QuestionClass> questions, string[] answersArray, int questionIndex)
+        public static void DisplayAnswers(List<QuestionClass> questions, int questionIndex, List<string> answersList)
         {
-            answersArray[0] = questions[questionIndex].Answer1;
-            answersArray[1] = questions[questionIndex].Answer2;
-            answersArray[2] = questions[questionIndex].Answer3;
-            answersArray[3] = questions[questionIndex].Answer4;
-
-            for (int answersListIndex = 0; answersListIndex < answersArray.Length; answersListIndex++)
+            for (int answerIndex = 0; answerIndex < answersList.Count; answerIndex++)
             {
-                Console.WriteLine($"{answersListIndex + 1}. {answersArray[answersListIndex].TrimEnd('*')}");
+                Console.WriteLine($"{answerIndex + 1}. {questions[questionIndex].Answers[answerIndex].TrimEnd('*')}");
             }
         }
 
@@ -73,9 +72,9 @@ namespace QuizMaker
             return answer - 1;
         }
 
-        public static void DisplayFeedbackToAnswer(int pickedAnswer, string[] answersArray, bool win)
+        public static void DisplayFeedbackToAnswer(int pickedAnswer, List<string> answersList, bool win)
         {
-            if (pickedAnswer < 0 || pickedAnswer > answersArray.Length)
+            if (pickedAnswer < 0 || pickedAnswer > answersList.Count)
             {
                 Console.WriteLine("Try again");
             }

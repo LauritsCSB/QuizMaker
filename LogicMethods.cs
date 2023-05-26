@@ -9,13 +9,13 @@ namespace QuizMaker
             return randomNumber;
         }
 
-        public static bool CheckAnswer(string[] answersArray, int pickedAnswer)
+        public static bool CheckAnswer(List<string> answersList, int pickedAnswer)
         {
             bool win = false;
 
-            if (pickedAnswer > 0 && pickedAnswer <= answersArray.Length)
+            if (pickedAnswer > 0 && pickedAnswer <= answersList.Count)
             {
-                if (answersArray[pickedAnswer].Contains('*'))
+                if (answersList[pickedAnswer].Contains('*'))
                 {
                     win = true;
                 }
