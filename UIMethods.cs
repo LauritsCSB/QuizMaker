@@ -50,12 +50,12 @@ namespace QuizMaker
             Console.Clear();
         }
 
-        public static void DisplayQuestion(List<QuestionClass> questions, int questionIndex)
+        public static void DisplayQuestion(List<QuizCard> questions, int questionIndex)
         {
             Console.WriteLine(questions[questionIndex].Question);
         }
 
-        public static void DisplayAnswers(List<QuestionClass> questions, int questionIndex, List<string> answersList)
+        public static void DisplayAnswers(List<QuizCard> questions, int questionIndex, List<string> answersList)
         {
             for (int answerIndex = 0; answerIndex < answersList.Count; answerIndex++)
             {

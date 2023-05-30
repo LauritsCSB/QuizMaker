@@ -5,10 +5,10 @@ class Program
     public static readonly Random random = new Random();
     static void Main(string[] args)
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionClass>));
+        XmlSerializer serializer = new XmlSerializer(typeof(List<QuizCard>));
         var path = Directory.GetCurrentDirectory() + @"/QuizData.xml";
         
-        List<QuestionClass> QuestionsList = new List<QuestionClass>();
+        List<QuizCard> QuestionsList = new List<QuizCard>();
         int decider;
 
         decider = UIMethods.DisplayWelcomeMessage();
@@ -17,7 +17,7 @@ class Program
         {
             do
             {
-                var Question = new QuestionClass();
+                var Question = new QuizCard();
 
                 Question.Question = UIMethods.SetQuestion();
                 UIMethods.DisplayHowToAddCorrectAnswer();
@@ -40,7 +40,7 @@ class Program
             bool win = false;
             using (FileStream file = File.OpenRead(path))
             {
-                QuestionsList = serializer.Deserialize(file) as List<QuestionClass>;
+                QuestionsList = serializer.Deserialize(file) as List<QuizCard>;
             }
 
             int questionIndex = LogicMethods.SelectRandomQuestion(QuestionsList.Count);
