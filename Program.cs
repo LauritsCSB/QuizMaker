@@ -6,7 +6,7 @@ class Program
     static void Main(string[] args)
     {
         XmlSerializer serializer = new XmlSerializer(typeof(List<QuizCard>));
-        var path = Directory.GetCurrentDirectory() + @"/QuizData.xml";
+        string path = "QuizData.xml";
         
         List<QuizCard> QuestionsList = new List<QuizCard>();
         int decider;
