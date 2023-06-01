@@ -35,13 +35,10 @@ namespace QuizMaker
             return question;
         }
 
-        public static void DisplayHowToAddCorrectAnswer()
-        {
-            Console.WriteLine("Note: For correct answer, add an '*' sign at the end of the string");
-        }
-
         public static void SetAnswers(List<string> answers)
         {
+            Console.WriteLine("Note: For correct answer, add an '*' sign at the end of the string");
+
             for (int answerIndex = 0; answerIndex <= 3; answerIndex++)
             {
             Console.WriteLine($"Enter answer {answerIndex+1}: ");
