@@ -36,7 +36,7 @@ namespace QuizMaker
         {
             using (FileStream file = File.Create(path))
             {
-                serializer.Serialize(file, Program.QuestionsList);
+                serializer.Serialize(file, Program.questionsList);
             }
         }
 
@@ -44,7 +44,7 @@ namespace QuizMaker
         {
             using (FileStream file = File.OpenRead(path))
             {
-                Program.QuestionsList = serializer.Deserialize(file) as List<QuizCard>;
+                Program.questionsList = serializer.Deserialize(file) as List<QuizCard>;
             }
         }
     }

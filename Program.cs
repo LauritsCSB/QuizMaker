@@ -2,7 +2,7 @@
 class Program
 {
     public static readonly Random random = new Random();
-    public static List<QuizCard> QuestionsList = new List<QuizCard>();
+    public static List<QuizCard> questionsList = new List<QuizCard>();
     static void Main(string[] args)
     {
         int decider;
@@ -16,11 +16,10 @@ class Program
                 var Question = new QuizCard();
 
                 Question.Question = UIMethods.SetQuestion();
-                UIMethods.DisplayHowToAddCorrectAnswer();
                 UIMethods.SetAnswers(Question.Answers);
 
                 decider = UIMethods.PromptForSaveAndExit();
-                QuestionsList.Add(Question);
+                questionsList.Add(Question);
             }
             while (decider == 1);
 
@@ -32,19 +31,19 @@ class Program
         {
             bool win = false;
 
-            int questionIndex = LogicMethods.SelectRandomQuestion(QuestionsList.Count);
-            UIMethods.DisplayQuestion(QuestionsList, questionIndex);
-            UIMethods.DisplayAnswers(QuestionsList, questionIndex, QuestionsList[questionIndex].Answers);
+            int questionIndex = LogicMethods.SelectRandomQuestion(questionsList.Count);
+            UIMethods.DisplayQuestion(questionsList, questionIndex);
+            UIMethods.DisplayAnswers(questionsList, questionIndex, questionsList[questionIndex].Answers);
 
             int pickedAnswer;
             do
             {
                 pickedAnswer = UIMethods.PromptToPickAnswer();
-                win = LogicMethods.CheckAnswer(QuestionsList[questionIndex].Answers, pickedAnswer);
+                win = LogicMethods.CheckAnswer(questionsList[questionIndex].Answers, pickedAnswer);
 
-                UIMethods.DisplayFeedbackToAnswer(pickedAnswer, QuestionsList[questionIndex].Answers, win);
+                UIMethods.DisplayFeedbackToAnswer(pickedAnswer, questionsList[questionIndex].Answers, win);
 
-            } while (pickedAnswer < 0 || pickedAnswer > QuestionsList[questionIndex].Answers.Count);
+            } while (pickedAnswer < 0 || pickedAnswer > questionsList[questionIndex].Answers.Count);
 
             decider = UIMethods.AskForReplay();
         }
