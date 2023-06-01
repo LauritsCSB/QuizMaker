@@ -95,6 +95,7 @@ namespace QuizMaker
             int decider;
             Console.WriteLine("For new question press 2, to exit press any other number");
             Int32.TryParse(Console.ReadLine(), out decider);
+            Console.Clear();
             return decider;
         }
     }

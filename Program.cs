@@ -1,14 +1,10 @@
 ﻿namespace QuizMaker;
-using System.Xml.Serialization;
 class Program
 {
     public static readonly Random random = new Random();
+    public static List<QuizCard> QuestionsList = new List<QuizCard>();
     static void Main(string[] args)
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(List<QuizCard>));
-        string path = "QuizData.xml";
-        
-        List<QuizCard> QuestionsList = new List<QuizCard>();
         int decider;
 
         decider = UIMethods.DisplayWelcomeMessage();
@@ -28,20 +24,13 @@ class Program
             }
             while (decider == 1);
 
-            using (FileStream file = File.Create(path))
-            {
-                serializer.Serialize(file, QuestionsList);
-            }
+            LogicMethods.SerializeToXML();
         }
 
 
         while (decider == 2)
         {
             bool win = false;
-            using (FileStream file = File.OpenRead(path))
-            {
-                QuestionsList = serializer.Deserialize(file) as List<QuizCard>;
-            }
 
             int questionIndex = LogicMethods.SelectRandomQuestion(QuestionsList.Count);
             UIMethods.DisplayQuestion(QuestionsList, questionIndex);
