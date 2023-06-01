@@ -31,6 +31,8 @@ class Program
         {
             bool win = false;
 
+            LogicMethods.DeSerealizeFromXML();
+
             int questionIndex = LogicMethods.SelectRandomQuestion(questionsList.Count);
             UIMethods.DisplayQuestion(questionsList, questionIndex);
             UIMethods.DisplayAnswers(questionsList, questionIndex, questionsList[questionIndex].Answers);
