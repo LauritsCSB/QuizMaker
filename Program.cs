@@ -3,6 +3,7 @@ class Program
 {
     public static readonly Random random = new Random();
     public static List<QuizCard> questionsList = new List<QuizCard>();
+    const string PATH = "QuizData.xml";
     static void Main(string[] args)
     {
         int decider;
@@ -17,23 +18,27 @@ class Program
 
                 Question.Question = UIMethods.SetQuestion();
                 UIMethods.SetAnswers(Question.Answers);
+                //hint: above methods should probably look like this:
+                // Question.Answers = UiMethods.GetAnswers();
 
                 decider = UIMethods.PromptForSaveAndExit();
                 questionsList.Add(Question);
             }
             while (decider == 1);
 
-            LogicMethods.SerializeToXML();
+            LogicMethods.SerializeToXML(PATH, questionsList);
         }
 
+        //TODO Add more decider variables so they "handle" one thing each. (One for gamemode, on for replay etc.)
 
         while (decider == 2)
         {
             bool win = false;
 
-            LogicMethods.DeSerealizeFromXML();
+            questionsList = LogicMethods.DeSerealizeFromXML(PATH, questionsList);
 
             int questionIndex = LogicMethods.SelectRandomQuestion(questionsList.Count);
+            var currentQuestion = questionsList[questionIndex];
             UIMethods.DisplayQuestion(questionsList, questionIndex);
             UIMethods.DisplayAnswers(questionsList, questionIndex, questionsList[questionIndex].Answers);
 

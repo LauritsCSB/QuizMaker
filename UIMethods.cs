@@ -41,11 +41,16 @@ namespace QuizMaker
 
             for (int answerIndex = 0; answerIndex <= 3; answerIndex++)
             {
-            Console.WriteLine($"Enter answer {answerIndex+1}: ");
-            answers.Add(Console.ReadLine());
+                Console.WriteLine($"Enter answer {answerIndex+1}: ");
+                answers.Add(Console.ReadLine());
             }
             Console.Clear();
         }
+
+        /*public static void DisplayQuestionAndAnswers(object qurrentQuestion)
+        {
+            Console.WriteLine(qurrentQuestion.);
+        }*/
 
         public static void DisplayQuestion(List<QuizCard> questions, int questionIndex)
         {

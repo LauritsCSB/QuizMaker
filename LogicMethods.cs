@@ -4,7 +4,6 @@ namespace QuizMaker
 {
     public class LogicMethods
     {
-        public const string path = "QuizData.xml";
         public static readonly XmlSerializer serializer = new XmlSerializer(typeof(List<QuizCard>));
 
         public static int SelectRandomQuestion(int max)
@@ -32,19 +31,19 @@ namespace QuizMaker
             return win;
         }
 
-        public static void SerializeToXML()
+        public static void SerializeToXML(string path, List<QuizCard> data)
         {
             using (FileStream file = File.Create(path))
             {
-                serializer.Serialize(file, Program.questionsList);
+                serializer.Serialize(file, data);
             }
         }
 
-        public static void DeSerealizeFromXML()
+        public static List<QuizCard> DeSerealizeFromXML(string path, List<QuizCard> data)
         {
             using (FileStream file = File.OpenRead(path))
             {
-                Program.questionsList = serializer.Deserialize(file) as List<QuizCard>;
+                return serializer.Deserialize(file) as List<QuizCard>;
             }
         }
     }
