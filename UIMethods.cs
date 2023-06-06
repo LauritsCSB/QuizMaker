@@ -28,15 +28,16 @@ namespace QuizMaker
             return decider;
         }
 
-        public static string SetQuestion()
+        public static string GetQuestion()
         {
             Console.WriteLine("Enter question: ");
             string question = Console.ReadLine();
             return question;
         }
 
-        public static void SetAnswers(List<string> answers)
+        public static List<string> GetAnswers()
         {
+            List<string> answers = new List<string>();
             Console.WriteLine("Note: For correct answer, add an '*' sign at the end of the string");
 
             for (int answerIndex = 0; answerIndex <= 3; answerIndex++)
@@ -45,6 +46,7 @@ namespace QuizMaker
                 answers.Add(Console.ReadLine());
             }
             Console.Clear();
+            return answers;
         }
 
         /*public static void DisplayQuestionAndAnswers(object qurrentQuestion)

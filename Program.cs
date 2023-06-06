@@ -16,10 +16,8 @@ class Program
             {
                 var Question = new QuizCard();
 
-                Question.Question = UIMethods.SetQuestion();
-                UIMethods.SetAnswers(Question.Answers);
-                //hint: above methods should probably look like this:
-                // Question.Answers = UiMethods.GetAnswers();
+                Question.Question = UIMethods.GetQuestion();
+                Question.Answers = UIMethods.GetAnswers();
 
                 decider = UIMethods.PromptForSaveAndExit();
                 questionsList.Add(Question);
