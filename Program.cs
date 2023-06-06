@@ -16,10 +16,11 @@ class Program
         {
             do
             {
-                var Question = new QuizCard();
-
-                Question.Question = UIMethods.GetQuestion();
-                Question.Answers = UIMethods.GetAnswers();
+               var Question = new QuizCard
+                {
+                    Question = UIMethods.GetQuestion(),
+                    Answers = UIMethods.GetAnswers()
+                };
 
                 gamemodeDecider = UIMethods.PromptForSaveAndExit();
                 questionsList.Add(Question);
