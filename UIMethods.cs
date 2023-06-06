@@ -19,6 +19,14 @@ namespace QuizMaker
             return decider;
         }
 
+        public static int ChooseAmountOfAnswers()
+        {
+            int amount;
+            Console.WriteLine("Please enter the amount of answers for current question");
+            Int32.TryParse(Console.ReadLine(), out amount);
+            return amount;
+        }
+
         public static int PromptForSaveAndExit()
         {
             int decider;
@@ -35,12 +43,12 @@ namespace QuizMaker
             return question;
         }
 
-        public static List<string> GetAnswers()
+        public static List<string> GetAnswers(int amountOfAnswers)
         {
             List<string> answers = new List<string>();
             Console.WriteLine("Note: For correct answer, add an '*' sign at the end of the string");
 
-            for (int answerIndex = 0; answerIndex <= 3; answerIndex++)
+            for (int answerIndex = 0; answerIndex <= (amountOfAnswers - 1); answerIndex++)
             {
                 Console.WriteLine($"Enter answer {answerIndex+1}: ");
                 answers.Add(Console.ReadLine());
@@ -58,18 +66,6 @@ namespace QuizMaker
             }
         }
 
-        public static void DisplayQuestion(List<QuizCard> questions, int questionIndex)
-        {
-            Console.WriteLine(questions[questionIndex].Question);
-        }
-
-        public static void DisplayAnswers(List<QuizCard> questions, int questionIndex, List<string> answersList)
-        {
-            for (int answerIndex = 0; answerIndex < answersList.Count; answerIndex++)
-            {
-                Console.WriteLine($"{answerIndex + 1}. {questions[questionIndex].Answers[answerIndex].TrimEnd('*')}");
-            }
-        }
 
         public static int PromptToPickAnswer()
         {

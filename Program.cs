@@ -7,19 +7,17 @@ class Program
     static void Main(string[] args)
     {
         int gamemodeDecider;
-
         gamemodeDecider = UIMethods.DisplayWelcomeMessage();
-
-        //TODO Let user decide how many answers to set for each question
 
         if (gamemodeDecider == 1)
         {
             do
             {
-               var Question = new QuizCard
+                int amountOfAnswers = UIMethods.ChooseAmountOfAnswers();
+                var Question = new QuizCard
                 {
                     Question = UIMethods.GetQuestion(),
-                    Answers = UIMethods.GetAnswers()
+                    Answers = UIMethods.GetAnswers(amountOfAnswers)
                 };
 
                 gamemodeDecider = UIMethods.PromptForSaveAndExit();
