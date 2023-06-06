@@ -98,13 +98,22 @@ namespace QuizMaker
             
         }
 
-        public static int AskForReplay()
+        public static bool AskForReplay()
         {
             int decider;
-            Console.WriteLine("For new question press 2, to exit press enter");
+            bool replay;
+            Console.WriteLine("For new question press 1, to exit press enter");
             Int32.TryParse(Console.ReadLine(), out decider);
             Console.Clear();
-            return decider;
+            if (decider == 1)
+            {
+                replay = true;
+            }
+            else
+            {
+                replay = false;
+            }
+            return replay;
         }
     }
 }

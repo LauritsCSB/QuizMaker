@@ -6,11 +6,13 @@ class Program
     const string PATH = "QuizData.xml";
     static void Main(string[] args)
     {
-        int decider;
+        int gamemodeDecider;
 
-        decider = UIMethods.DisplayWelcomeMessage();
+        gamemodeDecider = UIMethods.DisplayWelcomeMessage();
 
-        if (decider == 1)
+        //TODO Let user decide how many answers to set for each question
+
+        if (gamemodeDecider == 1)
         {
             do
             {
@@ -19,36 +21,38 @@ class Program
                 Question.Question = UIMethods.GetQuestion();
                 Question.Answers = UIMethods.GetAnswers();
 
-                decider = UIMethods.PromptForSaveAndExit();
+                gamemodeDecider = UIMethods.PromptForSaveAndExit();
                 questionsList.Add(Question);
             }
-            while (decider == 1);
+            while (gamemodeDecider == 1);
 
             LogicMethods.SerializeToXML(PATH, questionsList);
         }
 
-        //TODO Add more decider variables so they "handle" one thing each. (One for gamemode, on for replay etc.)
-
-        while (decider == 2)
+        bool replayDecider = true;
+        if (gamemodeDecider == 2)
         {
-            bool win = false;
-
-            questionsList = LogicMethods.DeSerealizeFromXML(PATH, questionsList);
-
-            var CurrentQuestion = questionsList[LogicMethods.SelectRandomQuestion(questionsList.Count)];
-            UIMethods.DisplayQuestionAndAnswers(CurrentQuestion);
-
-            int pickedAnswer;
-            do
+            while (replayDecider)
             {
-                pickedAnswer = UIMethods.PromptToPickAnswer();
-                win = LogicMethods.CheckAnswer(CurrentQuestion, pickedAnswer);
+                bool win;
 
-                UIMethods.DisplayFeedbackToAnswer(pickedAnswer, CurrentQuestion, win);
+                questionsList = LogicMethods.DeSerealizeFromXML(PATH, questionsList);
 
-            } while (pickedAnswer < 0 || pickedAnswer > CurrentQuestion.Answers.Count);
+                var CurrentQuestion = questionsList[LogicMethods.SelectRandomQuestion(questionsList.Count)];
+                UIMethods.DisplayQuestionAndAnswers(CurrentQuestion);
 
-            decider = UIMethods.AskForReplay();
+                int pickedAnswer;
+                do
+                {
+                    pickedAnswer = UIMethods.PromptToPickAnswer();
+                    win = LogicMethods.CheckAnswer(CurrentQuestion, pickedAnswer);
+
+                    UIMethods.DisplayFeedbackToAnswer(pickedAnswer, CurrentQuestion, win);
+
+                } while (pickedAnswer < 0 || pickedAnswer > CurrentQuestion.Answers.Count);
+
+                replayDecider = UIMethods.AskForReplay();
+            }
         }
     }
 }
