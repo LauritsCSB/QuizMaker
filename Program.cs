@@ -14,7 +14,7 @@ class Program
             do
             {
                 int amountOfAnswers = UIMethods.ChooseAmountOfAnswers();
-                var Question = new QuizCard
+                QuizCard Question = new QuizCard
                 {
                     Question = UIMethods.GetQuestion(),
                     Answers = UIMethods.GetAnswers(amountOfAnswers)
@@ -37,7 +37,7 @@ class Program
 
                 questionsList = LogicMethods.DeSerealizeFromXML(PATH, questionsList);
 
-                var CurrentQuestion = questionsList[LogicMethods.SelectRandomQuestion(questionsList.Count)];
+                QuizCard CurrentQuestion = questionsList[LogicMethods.SelectRandomQuestion(questionsList.Count)];
                 UIMethods.DisplayQuestionAndAnswers(CurrentQuestion);
 
                 int pickedAnswer;
