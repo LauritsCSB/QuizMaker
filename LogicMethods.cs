@@ -12,13 +12,13 @@ namespace QuizMaker
             return randomNumber;
         }
 
-        public static bool CheckAnswer(List<string> answersList, int pickedAnswer)
+        public static bool CheckAnswer(QuizCard CurrentQuestion, int pickedAnswer)
         {
             bool win = false;
 
-            if (pickedAnswer > 0 && pickedAnswer <= answersList.Count)
+            if (pickedAnswer > 0 && pickedAnswer <= CurrentQuestion.Answers.Count)
             {
-                if (answersList[pickedAnswer].Contains('*'))
+                if (CurrentQuestion.Answers[pickedAnswer].Contains('*'))
                 {
                     win = true;
                 }

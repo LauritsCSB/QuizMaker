@@ -35,21 +35,18 @@ class Program
 
             questionsList = LogicMethods.DeSerealizeFromXML(PATH, questionsList);
 
-            int questionIndex = LogicMethods.SelectRandomQuestion(questionsList.Count);
-            var CurrentQuestion = questionsList[questionIndex];
+            var CurrentQuestion = questionsList[LogicMethods.SelectRandomQuestion(questionsList.Count)];
             UIMethods.DisplayQuestionAndAnswers(CurrentQuestion);
-            //UIMethods.DisplayQuestion(questionsList, questionIndex);
-            //UIMethods.DisplayAnswers(questionsList, questionIndex, questionsList[questionIndex].Answers);
 
             int pickedAnswer;
             do
             {
                 pickedAnswer = UIMethods.PromptToPickAnswer();
-                win = LogicMethods.CheckAnswer(questionsList[questionIndex].Answers, pickedAnswer);
+                win = LogicMethods.CheckAnswer(CurrentQuestion, pickedAnswer);
 
-                UIMethods.DisplayFeedbackToAnswer(pickedAnswer, questionsList[questionIndex].Answers, win);
+                UIMethods.DisplayFeedbackToAnswer(pickedAnswer, CurrentQuestion, win);
 
-            } while (pickedAnswer < 0 || pickedAnswer > questionsList[questionIndex].Answers.Count);
+            } while (pickedAnswer < 0 || pickedAnswer > CurrentQuestion.Answers.Count);
 
             decider = UIMethods.AskForReplay();
         }
