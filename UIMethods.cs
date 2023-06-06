@@ -49,10 +49,14 @@ namespace QuizMaker
             return answers;
         }
 
-        /*public static void DisplayQuestionAndAnswers(object qurrentQuestion)
+        public static void DisplayQuestionAndAnswers(QuizCard currentQuestion)
         {
-            Console.WriteLine(qurrentQuestion.);
-        }*/
+            Console.WriteLine(currentQuestion.Question);
+            for (int answerIndex = 0; answerIndex < currentQuestion.Answers.Count(); answerIndex++)
+            {
+                Console.WriteLine($"{answerIndex + 1}. {currentQuestion.Answers[answerIndex].TrimEnd('*')}");
+            }
+        }
 
         public static void DisplayQuestion(List<QuizCard> questions, int questionIndex)
         {

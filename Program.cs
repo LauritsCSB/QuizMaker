@@ -36,9 +36,10 @@ class Program
             questionsList = LogicMethods.DeSerealizeFromXML(PATH, questionsList);
 
             int questionIndex = LogicMethods.SelectRandomQuestion(questionsList.Count);
-            var currentQuestion = questionsList[questionIndex];
-            UIMethods.DisplayQuestion(questionsList, questionIndex);
-            UIMethods.DisplayAnswers(questionsList, questionIndex, questionsList[questionIndex].Answers);
+            var CurrentQuestion = questionsList[questionIndex];
+            UIMethods.DisplayQuestionAndAnswers(CurrentQuestion);
+            //UIMethods.DisplayQuestion(questionsList, questionIndex);
+            //UIMethods.DisplayAnswers(questionsList, questionIndex, questionsList[questionIndex].Answers);
 
             int pickedAnswer;
             do
