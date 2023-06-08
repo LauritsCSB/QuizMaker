@@ -3,7 +3,6 @@ class Program
 {
     public static readonly Random random = new Random();
     public static List<QuizCard> questionsList = new List<QuizCard>();
-    const string PATH = "QuizData.xml";
     static void Main(string[] args)
     {
         int gamemodeDecider = UIMethods.DisplayWelcomeMessage();
@@ -24,7 +23,7 @@ class Program
             }
             while (gamemodeDecider == 1);
 
-            LogicMethods.SerializeToXML(PATH, questionsList);
+            LogicMethods.SerializeToXML(questionsList);
         }
 
         if (gamemodeDecider == 2)
@@ -33,7 +32,7 @@ class Program
             while (replayDecider)
             {
 
-                questionsList = LogicMethods.DeSerealizeFromXML(PATH, questionsList);
+                questionsList = LogicMethods.DeSerealizeFromXML();
 
                 QuizCard CurrentQuestion = questionsList[LogicMethods.SelectRandomQuestion(questionsList.Count)];
                 UIMethods.DisplayQuestionAndAnswers(CurrentQuestion);

@@ -4,6 +4,8 @@ namespace QuizMaker
 {
     public class LogicMethods
     {
+        const string PATH = "QuizData.xml";
+
         public static readonly XmlSerializer serializer = new XmlSerializer(typeof(List<QuizCard>));
 
         public static int SelectRandomQuestion(int max)
@@ -16,6 +18,7 @@ namespace QuizMaker
         {
             bool win = false;
 
+            //TODO Following statement doesn't handle input out of index range
             if (pickedAnswer > 0 && pickedAnswer <= CurrentQuestion.Answers.Count)
             {
                 if (CurrentQuestion.Answers[pickedAnswer].Contains('*'))
@@ -31,17 +34,17 @@ namespace QuizMaker
             return win;
         }
 
-        public static void SerializeToXML(string path, List<QuizCard> data)
+        public static void SerializeToXML(List<QuizCard> data)
         {
-            using (FileStream file = File.Create(path))
+            using (FileStream file = File.Create(PATH))
             {
                 serializer.Serialize(file, data);
             }
         }
 
-        public static List<QuizCard> DeSerealizeFromXML(string path)
+        public static List<QuizCard> DeSerealizeFromXML()
         {
-            using (FileStream file = File.OpenRead(path))
+            using (FileStream file = File.OpenRead(PATH))
             {
                 return serializer.Deserialize(file) as List<QuizCard>;
             }
