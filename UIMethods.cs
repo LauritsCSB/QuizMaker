@@ -48,11 +48,30 @@ namespace QuizMaker
             List<string> answers = new List<string>();
             Console.WriteLine("Note: For correct answer, add an '*' sign at the end of the string");
 
+            int correctAnswerCounter = 0;
+            do
+            {
             for (int answerIndex = 0; answerIndex <= (amountOfAnswers - 1); answerIndex++)
             {
                 Console.WriteLine($"Enter answer {answerIndex+1}: ");
                 answers.Add(Console.ReadLine());
             }
+
+            foreach (var answer in answers)
+            {
+                if (answer.Contains('*'))
+                {
+                    correctAnswerCounter++;
+                }
+            }
+
+            if (correctAnswerCounter < 1)
+            {
+                Console.WriteLine("No correct answer was detected, please try again");
+            }
+
+            } while (correctAnswerCounter < 1);
+
             Console.Clear();
             return answers;
         }
