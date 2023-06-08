@@ -27,12 +27,11 @@ class Program
             LogicMethods.SerializeToXML(PATH, questionsList);
         }
 
-        bool replayDecider = true;
         if (gamemodeDecider == 2)
         {
+            bool replayDecider = true;
             while (replayDecider)
             {
-                bool win;
 
                 questionsList = LogicMethods.DeSerealizeFromXML(PATH, questionsList);
 
@@ -43,7 +42,7 @@ class Program
                 do
                 {
                     pickedAnswer = UIMethods.PromptToPickAnswer();
-                    win = LogicMethods.CheckAnswer(CurrentQuestion, pickedAnswer);
+                    bool win = LogicMethods.CheckAnswer(CurrentQuestion, pickedAnswer);
 
                     UIMethods.DisplayFeedbackToAnswer(pickedAnswer, CurrentQuestion, win);
 
