@@ -14,12 +14,12 @@ class Program
             do
             {
                 int amountOfAnswers = UIMethods.ChooseAmountOfAnswers();
-                QuizCard question = new QuizCard();
+                QuizCard quizCard = new QuizCard();
 
-                question.Question = UIMethods.GetQuestion();
-                question.Answers = UIMethods.GetAnswers(amountOfAnswers);
+                quizCard.Question = UIMethods.GetQuestion();
+                quizCard.Answers = UIMethods.GetAnswers(amountOfAnswers);
 
-                questionsList.Add(question);
+                questionsList.Add(quizCard);
                 gamemodeDecider = UIMethods.PromptForSaveAndExit();
             }
             while (gamemodeDecider == 1);
