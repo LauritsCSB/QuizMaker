@@ -6,8 +6,8 @@ class Program
     const string PATH = "QuizData.xml";
     static void Main(string[] args)
     {
-        int gamemodeDecider;
-        gamemodeDecider = UIMethods.DisplayWelcomeMessage();
+        int gamemodeDecider = UIMethods.DisplayWelcomeMessage();
+
 
         if (gamemodeDecider == 1)
         {
