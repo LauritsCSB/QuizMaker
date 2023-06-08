@@ -67,22 +67,21 @@ namespace QuizMaker
         }
 
 
-        public static int PromptToPickAnswer()
+        public static int PromptToPickAnswer(QuizCard currentQuestion)
         {
             int answer;
-            Console.WriteLine("Pick a number for your answer: ");
-            Int32.TryParse(Console.ReadLine(), out answer);
+            do
+            {
+                Console.WriteLine("Pick a number for your answer: ");
+                Int32.TryParse(Console.ReadLine(), out answer);
+
+            } while (answer < 0 || answer > currentQuestion.Answers.Count);
 
             return answer - 1;
         }
 
         public static void DisplayFeedbackToAnswer(int pickedAnswer, QuizCard currentQuestion, bool win)
         {
-            if (pickedAnswer < 0 || pickedAnswer > currentQuestion.Answers.Count)
-            {
-                Console.WriteLine("Try again");
-            }
-
             if (win)
             {
                 Console.WriteLine("Correct!");

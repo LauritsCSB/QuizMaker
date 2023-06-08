@@ -40,7 +40,7 @@ class Program
                 int pickedAnswer;
                 do
                 {
-                    pickedAnswer = UIMethods.PromptToPickAnswer();
+                    pickedAnswer = UIMethods.PromptToPickAnswer(currentQuestion);
                     bool win = LogicMethods.CheckAnswer(currentQuestion, pickedAnswer);
 
                     UIMethods.DisplayFeedbackToAnswer(pickedAnswer, currentQuestion, win);

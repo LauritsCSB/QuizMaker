@@ -16,21 +16,17 @@ namespace QuizMaker
 
         public static bool CheckAnswer(QuizCard currentQuestion, int pickedAnswer)
         {
-            bool win = false;
+            bool win;
 
-            //TODO Following statement doesn't handle input out of index range
-            if (pickedAnswer > 0 && pickedAnswer <= currentQuestion.Answers.Count)
+            if (currentQuestion.Answers[pickedAnswer].Contains('*'))
             {
-                if (currentQuestion.Answers[pickedAnswer].Contains('*'))
-                {
-                    win = true;
-                }
-                else
-                {
-                    win = false;
-                }
+                win = true;
             }
-
+            else
+            {
+                win = false;
+            }
+            
             return win;
         }
 
