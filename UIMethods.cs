@@ -60,7 +60,7 @@ namespace QuizMaker
         public static void DisplayQuestionAndAnswers(QuizCard currentQuestion)
         {
             Console.WriteLine(currentQuestion.Question);
-            for (int answerIndex = 0; answerIndex < currentQuestion.Answers.Count(); answerIndex++)
+            for (int answerIndex = 0; answerIndex < currentQuestion.Answers.Count; answerIndex++)
             {
                 Console.WriteLine($"{answerIndex + 1}. {currentQuestion.Answers[answerIndex].TrimEnd('*')}");
             }
