@@ -39,7 +39,7 @@ namespace QuizMaker
             }
         }
 
-        public static List<QuizCard> DeSerealizeFromXML(string path, List<QuizCard> data)
+        public static List<QuizCard> DeSerealizeFromXML(string path)
         {
             using (FileStream file = File.OpenRead(path))
             {
