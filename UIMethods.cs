@@ -57,12 +57,12 @@ namespace QuizMaker
             return answers;
         }
 
-        public static void DisplayQuestionAndAnswers(QuizCard CurrentQuestion)
+        public static void DisplayQuestionAndAnswers(QuizCard currentQuestion)
         {
-            Console.WriteLine(CurrentQuestion.Question);
-            for (int answerIndex = 0; answerIndex < CurrentQuestion.Answers.Count(); answerIndex++)
+            Console.WriteLine(currentQuestion.Question);
+            for (int answerIndex = 0; answerIndex < currentQuestion.Answers.Count(); answerIndex++)
             {
-                Console.WriteLine($"{answerIndex + 1}. {CurrentQuestion.Answers[answerIndex].TrimEnd('*')}");
+                Console.WriteLine($"{answerIndex + 1}. {currentQuestion.Answers[answerIndex].TrimEnd('*')}");
             }
         }
 
@@ -76,9 +76,9 @@ namespace QuizMaker
             return answer - 1;
         }
 
-        public static void DisplayFeedbackToAnswer(int pickedAnswer, QuizCard CurrentQuestion, bool win)
+        public static void DisplayFeedbackToAnswer(int pickedAnswer, QuizCard currentQuestion, bool win)
         {
-            if (pickedAnswer < 0 || pickedAnswer > CurrentQuestion.Answers.Count)
+            if (pickedAnswer < 0 || pickedAnswer > currentQuestion.Answers.Count)
             {
                 Console.WriteLine("Try again");
             }

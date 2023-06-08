@@ -34,18 +34,18 @@ class Program
 
                 questionsList = LogicMethods.DeSerealizeFromXML();
 
-                QuizCard CurrentQuestion = questionsList[LogicMethods.SelectRandomQuestion(questionsList.Count)];
-                UIMethods.DisplayQuestionAndAnswers(CurrentQuestion);
+                QuizCard currentQuestion = questionsList[LogicMethods.SelectRandomQuestion(questionsList.Count)];
+                UIMethods.DisplayQuestionAndAnswers(currentQuestion);
 
                 int pickedAnswer;
                 do
                 {
                     pickedAnswer = UIMethods.PromptToPickAnswer();
-                    bool win = LogicMethods.CheckAnswer(CurrentQuestion, pickedAnswer);
+                    bool win = LogicMethods.CheckAnswer(currentQuestion, pickedAnswer);
 
-                    UIMethods.DisplayFeedbackToAnswer(pickedAnswer, CurrentQuestion, win);
+                    UIMethods.DisplayFeedbackToAnswer(pickedAnswer, currentQuestion, win);
 
-                } while (pickedAnswer < 0 || pickedAnswer > CurrentQuestion.Answers.Count);
+                } while (pickedAnswer < 0 || pickedAnswer > currentQuestion.Answers.Count);
 
                 replayDecider = UIMethods.AskForReplay();
             }

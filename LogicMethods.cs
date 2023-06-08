@@ -14,14 +14,14 @@ namespace QuizMaker
             return randomNumber;
         }
 
-        public static bool CheckAnswer(QuizCard CurrentQuestion, int pickedAnswer)
+        public static bool CheckAnswer(QuizCard currentQuestion, int pickedAnswer)
         {
             bool win = false;
 
             //TODO Following statement doesn't handle input out of index range
-            if (pickedAnswer > 0 && pickedAnswer <= CurrentQuestion.Answers.Count)
+            if (pickedAnswer > 0 && pickedAnswer <= currentQuestion.Answers.Count)
             {
-                if (CurrentQuestion.Answers[pickedAnswer].Contains('*'))
+                if (currentQuestion.Answers[pickedAnswer].Contains('*'))
                 {
                     win = true;
                 }
