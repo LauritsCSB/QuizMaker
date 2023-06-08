@@ -19,8 +19,8 @@ class Program
                 question.Question = UIMethods.GetQuestion();
                 question.Answers = UIMethods.GetAnswers(amountOfAnswers);
 
-                gamemodeDecider = UIMethods.PromptForSaveAndExit();
                 questionsList.Add(question);
+                gamemodeDecider = UIMethods.PromptForSaveAndExit();
             }
             while (gamemodeDecider == 1);
 
