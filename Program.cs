@@ -17,6 +17,7 @@ class Program
 
                 quizCard.Question = UIMethods.GetQuestion();
                 quizCard.Answers = UIMethods.GetAnswers(amountOfAnswers);
+                quizCard.Answers = UIMethods.GetCorrectAnswer(quizCard.Answers);
 
                 questionsList.Add(quizCard);
                 gamemodeDecider = UIMethods.PromptForSaveAndExit();

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text;
+
 namespace QuizMaker
 {
     public class UIMethods
@@ -22,8 +24,12 @@ namespace QuizMaker
         public static int ChooseAmountOfAnswers()
         {
             int amount;
-            Console.WriteLine("Please enter the amount of answers for current question");
-            Int32.TryParse(Console.ReadLine(), out amount);
+            do
+            {
+                Console.WriteLine("Please enter the amount of answers for the current question:");
+                Int32.TryParse(Console.ReadLine(), out amount);
+        
+            } while (amount < 1);
             return amount;
         }
 
@@ -46,34 +52,37 @@ namespace QuizMaker
         public static List<string> GetAnswers(int amountOfAnswers)
         {
             List<string> answers = new List<string>();
-            Console.WriteLine("Note: For correct answer, add an '*' sign at the end of the string");
-
-            int correctAnswerCounter = 0;
-            do
-            {
+            Console.WriteLine("Note: Only one correct answer per question. This will be set after all possible answers is given.");
+            
             for (int answerIndex = 0; answerIndex <= (amountOfAnswers - 1); answerIndex++)
             {
                 Console.WriteLine($"Enter answer {answerIndex+1}: ");
                 answers.Add(Console.ReadLine());
             }
 
-            foreach (var answer in answers)
-            {
-                if (answer.Contains('*'))
-                {
-                    correctAnswerCounter++;
-                }
-            }
-
-            if (correctAnswerCounter < 1)
-            {
-                Console.WriteLine("No correct answer was detected, please try again");
-            }
-
-            } while (correctAnswerCounter < 1);
-
             Console.Clear();
             return answers;
+        }
+
+        public static List<string> GetCorrectAnswer(List<string> answersList)
+        {
+            int correctAnswerIndex;
+            Console.WriteLine("Given answers:");
+            do
+            {
+                for (int answerIndex = 0; answerIndex < answersList.Count; answerIndex++)
+                {
+                    Console.WriteLine($"{answerIndex+1}. {answersList[answerIndex]}");
+                }
+
+                Console.WriteLine("What number of answer is the correct one?");
+                Int32.TryParse(Console.ReadLine(), out correctAnswerIndex);
+                Console.Clear();
+            } while (correctAnswerIndex < 0 && correctAnswerIndex > answersList.Count);
+
+            answersList[correctAnswerIndex - 1] += '*';
+
+            return answersList;
         }
 
         public static void DisplayQuestionAndAnswers(QuizCard currentQuestion)
