@@ -16,18 +16,7 @@ namespace QuizMaker
 
         public static bool CheckAnswer(QuizCard currentQuestion, int pickedAnswer)
         {
-            bool win;
-
-            if (currentQuestion.Answers[pickedAnswer].Contains('*'))
-            {
-                win = true;
-            }
-            else
-            {
-                win = false;
-            }
-            
-            return win;
+            return currentQuestion.Answers[pickedAnswer].Contains("*");
         }
 
         public static void SerializeToXML(List<QuizCard> data)
