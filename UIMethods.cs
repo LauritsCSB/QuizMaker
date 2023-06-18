@@ -5,6 +5,10 @@ namespace QuizMaker
 {
     public class UIMethods
     {
+        /// <summary>
+        /// prints instructions to user. Asks for input to decide playmode
+        /// </summary>
+        /// <returns>decider integer to determine playmode</returns>
         public static int DisplayWelcomeMessage()
         {
             int decider;
@@ -21,6 +25,10 @@ namespace QuizMaker
             return decider;
         }
 
+        /// <summary>
+        /// asks user to input the amount of answers they want for the following question
+        /// </summary>
+        /// <returns>integer deciding the amount of answers</returns>
         public static int ChooseAmountOfAnswers()
         {
             int amount;
@@ -33,6 +41,10 @@ namespace QuizMaker
             return amount;
         }
 
+        /// <summary>
+        /// gives user the ability to choose between adding more questions, save and start the quiz or exit
+        /// </summary>
+        /// <returns>decider integer to dertermine thir choise</returns>
         public static int PromptForSaveAndExit()
         {
             int decider;
@@ -42,6 +54,10 @@ namespace QuizMaker
             return decider;
         }
 
+        /// <summary>
+        /// asking user to enter question
+        /// </summary>
+        /// <returns>string containing question</returns>
         public static string GetQuestion()
         {
             Console.WriteLine("Enter question: ");
@@ -49,6 +65,11 @@ namespace QuizMaker
             return question;
         }
 
+        /// <summary>
+        /// asking user to imput the answers they want for the current question
+        /// </summary>
+        /// <param name="amountOfAnswers"></param>
+        /// <returns>list of strings containing the given answers</returns>
         public static List<string> GetAnswers(int amountOfAnswers)
         {
             List<string> answers = new List<string>();
@@ -64,6 +85,11 @@ namespace QuizMaker
             return answers;
         }
 
+        /// <summary>
+        /// asks the user to specify which one of the given answers is correct 
+        /// </summary>
+        /// <param name="answersList"></param>
+        /// <returns>a list of answers whith and indicator at the end of the correct one</returns>
         public static List<string> GetCorrectAnswer(List<string> answersList)
         {
             int correctAnswerIndex;
@@ -85,6 +111,10 @@ namespace QuizMaker
             return answersList;
         }
 
+        /// <summary>
+        /// prints question with all related answers to user
+        /// </summary>
+        /// <param name="currentQuestion"></param>
         public static void DisplayQuestionAndAnswers(QuizCard currentQuestion)
         {
             Console.WriteLine(currentQuestion.Question);
@@ -94,7 +124,11 @@ namespace QuizMaker
             }
         }
 
-
+        /// <summary>
+        /// asks user to input their answer
+        /// </summary>
+        /// <param name="currentQuestion"></param>
+        /// <returns>users input decremented by one</returns>
         public static int PromptToPickAnswer(QuizCard currentQuestion)
         {
             int answer;
@@ -108,6 +142,12 @@ namespace QuizMaker
             return answer - 1;
         }
 
+        /// <summary>
+        /// prints feedback based on users answer to question
+        /// </summary>
+        /// <param name="pickedAnswer"></param>
+        /// <param name="currentQuestion"></param>
+        /// <param name="win"></param>
         public static void DisplayFeedbackToAnswer(int pickedAnswer, QuizCard currentQuestion, bool win)
         {
             if (win)
@@ -121,6 +161,10 @@ namespace QuizMaker
             
         }
 
+        /// <summary>
+        /// asks user to decide whether they want another question or exit
+        /// </summary>
+        /// <returns>boolean based on users input referring to replay</returns>
         public static bool AskForReplay()
         {
             int decider;
