@@ -16,7 +16,7 @@ namespace QuizMaker
             Console.WriteLine("\tFor new quiz pres 1\n\tFor latest quiz press 2");
 
             Int32.TryParse(Console.ReadLine(), out decider);
-            while (decider < 1 || decider > 2)
+            while (decider < 1 || decider > 3)
             {
                 Console.WriteLine("Try again");
                 Int32.TryParse(Console.ReadLine(), out decider);
@@ -181,6 +181,19 @@ namespace QuizMaker
                 replay = false;
             }
             return replay;
+        }
+
+        public static void DisplayAllQuizcardsFromList(List<QuizCard> questionsList)
+        {
+            for (int quizCardIndex = 0; quizCardIndex < questionsList.Count; quizCardIndex++)
+            {
+                Console.Write($"{questionsList[quizCardIndex].Question} ");
+                for (int answeIndex = 0; answeIndex < questionsList[quizCardIndex].Answers.Count; answeIndex++)
+                {
+                    Console.Write($"{answeIndex + 1}. {questionsList[quizCardIndex].Answers[answeIndex]}. ");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }

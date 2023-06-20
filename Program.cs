@@ -2,7 +2,7 @@
 class Program
 {
     public static readonly Random random = new Random();
-    public static List<QuizCard> questionsList = new List<QuizCard>();
+    public static List<QuizCard> quizCardList = new List<QuizCard>();
     static void Main(string[] args)
     {
         int gamemodeDecider = UIMethods.DisplayWelcomeMessage();
@@ -19,12 +19,12 @@ class Program
                 quizCard.Answers = UIMethods.GetAnswers(amountOfAnswers);
                 quizCard.Answers = UIMethods.GetCorrectAnswer(quizCard.Answers);
 
-                questionsList.Add(quizCard);
+                quizCardList.Add(quizCard);
                 gamemodeDecider = UIMethods.PromptForSaveAndExit();
             }
             while (gamemodeDecider == 1);
 
-            LogicMethods.SerializeToXML(questionsList);
+            LogicMethods.SerializeToXML(quizCardList);
         }
 
         if (gamemodeDecider == 2)
@@ -33,9 +33,9 @@ class Program
             while (replayDecider)
             {
 
-                questionsList = LogicMethods.DeSerealizeFromXML();
+                quizCardList = LogicMethods.DeSerealizeFromXML();
 
-                QuizCard currentQuestion = questionsList[LogicMethods.SelectRandomQuestion(questionsList.Count)];
+                QuizCard currentQuestion = quizCardList[LogicMethods.SelectRandomQuestion(quizCardList.Count)];
                 UIMethods.DisplayQuestionAndAnswers(currentQuestion);
 
                 int pickedAnswer;
@@ -50,6 +50,14 @@ class Program
 
                 replayDecider = UIMethods.AskForReplay();
             }
+        }
+
+        if (gamemodeDecider == 3)
+        {
+            quizCardList = LogicMethods.DeSerealizeFromXML();
+
+            UIMethods.DisplayAllQuizcardsFromList(quizCardList);
+            Console.ReadLine();
         }
     }
 }
