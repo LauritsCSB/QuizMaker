@@ -12,8 +12,8 @@ namespace QuizMaker
         public static int DisplayWelcomeMessage()
         {
             int decider;
-            Console.WriteLine("Welcome user! This is a quiz maker program.\nWould you like to play latest saved quiz or create a new one?");
-            Console.WriteLine("\tFor new quiz pres 1\n\tFor latest quiz press 2");
+            Console.WriteLine("Welcome user! This is a quiz maker program.");
+            Console.WriteLine("To see the list of saved quizcards press 1\nFor new list of quizcards pres 2\nTo play saved quiz press 3");
 
             Int32.TryParse(Console.ReadLine(), out decider);
             while (decider < 1 || decider > 3)
